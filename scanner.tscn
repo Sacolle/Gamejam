@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6pnse6exakcf"]
+
+[ext_resource type="Script" path="res://scanner.gd" id="1_6ugfv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g425t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oick7"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dsshg"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_16hiw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqqye"]
+albedo_color = Color(1, 0, 0, 0.286275)
+
+[node name="scanner" type="Area3D"]
+script = ExtResource("1_6ugfv")
+
+[node name="scanner_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999982, -0.00510336, 0.00318677, 0.00511223, 0.999983, -0.00278228, -0.00317252, 0.00279852, 0.999991, 0, 0, 0)
+mesh = SubResource("BoxMesh_g425t")
+surface_material_override/0 = SubResource("StandardMaterial3D_oick7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_dsshg")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -10)
+collide_with_areas = true
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 4
+
+[node name="lazer" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -10)
+mesh = SubResource("PlaneMesh_16hiw")
+surface_material_override/0 = SubResource("StandardMaterial3D_bqqye")

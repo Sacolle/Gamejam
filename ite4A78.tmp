@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://byihu3aetkxaa"]
+
+[ext_resource type="Script" path="res://item.gd" id="1_ckwlh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jyrlf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b7vq5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fn02j"]
+vertex_color_is_srgb = true
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="item" type="Area3D" groups=["itens"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_ckwlh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_jyrlf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_b7vq5")
+surface_material_override/0 = SubResource("StandardMaterial3D_fn02j")
+
+[node name="TimeScanned" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0733519, 0.632189, 0.260165)
+billboard = 1
+text = "0"
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
