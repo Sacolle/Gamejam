@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b6pnse6exakcf" path="res://scanner.tscn" id="2_ttui5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_o2jq0"]
-size = Vector2(10, 10)
+size = Vector2(3, 10)
 orientation = 1
 
 [node name="main" type="Node3D"]
