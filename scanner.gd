@@ -12,6 +12,9 @@ var ray = $RayCast3D
 @onready
 var laser = $lazer
 
+@onready
+var anim = $AnimationPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	laser.visible = false
@@ -19,6 +22,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("scan"):
+		anim.play("laser_on")
 		laser.visible = true
 		if ray.is_colliding():
 			var c = ray.get_collider()

@@ -58,6 +58,8 @@ func _process(delta):
 
 func _on_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:
+		#print(position)
+		print(Grid.world_to_grid(position))
 		if not is_rotating:
 			is_rotating = true
 			if event.button_index == MOUSE_BUTTON_LEFT:
