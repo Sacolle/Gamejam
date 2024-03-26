@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c510cmtigpytf"]
+[gd_scene load_steps=6 format=3 uid="uid://c510cmtigpytf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_xlcdy"]
 [ext_resource type="PackedScene" uid="uid://b6pnse6exakcf" path="res://scanner.tscn" id="2_ttui5"]
+[ext_resource type="PackedScene" uid="uid://dt16omp1thmnp" path="res://2b_1_item.tscn" id="3_5qdp0"]
 
 [sub_resource type="Environment" id="Environment_ftk5f"]
 glow_enabled = true
@@ -14,7 +15,8 @@ orientation = 1
 script = ExtResource("1_xlcdy")
 
 [node name="scanner" parent="." instance=ExtResource("2_ttui5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.79002)
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.67559, -0.638501, 0.368639, 0, 0.5, 0.866025, -0.737277, -0.585078, 0.337795, 3.97061, 5.71465, 4.73546)
@@ -26,7 +28,7 @@ billboard = 1
 text = "Score: "
 
 [node name="chao" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 2.79002)
 mesh = SubResource("QuadMesh_o2jq0")
 
 [node name="sun" type="DirectionalLight3D" parent="."]
@@ -40,6 +42,9 @@ one_shot = true
 [node name="stepTimer" type="Timer" parent="."]
 wait_time = 100.0
 one_shot = true
+
+[node name="2b1_item" parent="." instance=ExtResource("3_5qdp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="stepTimer" to="." method="_on_step_timer_timeout"]

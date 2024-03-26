@@ -22,14 +22,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("scan"):
-		anim.play("laser_on")
+		#anim.play("laser_on")
 		laser.visible = true
 		if ray.is_colliding():
 			var c = ray.get_collider()
 			var pos = c.position
 			laser.scale.z  = (position.z - pos.z)/2
 			laser.position.z = -(position.z - pos.z)/2
-			c.hit()
+			c.hit(position)
 		else:
 			laser.scale.z  = laser_base_scale
 			laser.position.z = -laser_base_scale
@@ -47,6 +47,6 @@ func _process(delta):
 		position.x += step
 
 	position.x = clamp(position.x, -1, 1)
-	
+	#if the lazer moved, let the items know that they are not getting hit
 	if old_pos != position.x:
 		get_tree().call_group("itens", "stopped_getting_hit")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt16omp1thmnp"]
+
+[ext_resource type="Script" path="res://2b_1_item.gd" id="1_kk4wx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oku1i"]
+lightmap_size_hint = Vector2i(14, 21)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttk74"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_reqyb"]
+size = Vector3(1.99612, 1, 1)
+
+[node name="2b1_item" type="Area3D"]
+script = ExtResource("1_kk4wx")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_oku1i")
+surface_material_override/0 = SubResource("StandardMaterial3D_ttk74")
+
+[node name="hitBox" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_reqyb")
+
+[node name="Center" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+pixel_size = 0.01
+billboard = 1
+no_depth_test = true
+text = "."
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
