@@ -13,13 +13,10 @@ var is_hit = false
 var is_rotating = false
 
 @onready var hit_box = $hitBox
-@onready var mesh = $mesh
 @onready var point = $Center
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	position.z = 3
-	set_item_center(barcode_cell)
 	pass # Replace with function body.
 
 func start(pos):
@@ -36,30 +33,28 @@ func hit(scan_pos):
 
 func stopped_getting_hit():
 	is_hit = false
-	
-func set_item_center(cell: Vector2i):
+
+func set_item_center(cell: Vector2i) -> bool:
+	if cell.x == position.x and cell.y == position.z: 
+		return false
 	var old_pos = Vector2(position.x, position.z)
 	#puts the position at the cell
 	position.x = cell.x
 	position.z = cell.y
+	
 	#offsets the hitbox and mesh based on current orientation
-	"""
 	var orientation = current_orientation()
 	var shape_dim = Vector2(hit_box.shape.size.x, hit_box.shape.size.z)
-	#orientation is horizontal(0,2) or vertical(1,3)
-	#if vertical, swap the dim
-	if orientation % 2 == 1:
-		var temp = shape_dim.x
-		shape_dim.x = shape_dim.y
-		shape_dim.y = temp
-	"""
-	#hit_box.position.x = (cell.x - old_pos.x)
-	#hit_box.position.z = (cell.y - old_pos.y)
-	mesh.position.x = float(cell.x - old_pos.x)
-	mesh.position.z = float(cell.y - old_pos.y)
+	match orientation:
+		0: hit_box.position.x = float(old_pos.x - cell.x) / shape_dim.x
+		1: hit_box.position.x = float(cell.y - old_pos.y) / shape_dim.x
+		2: hit_box.position.x = float(cell.x - old_pos.x) / shape_dim.x #reversed 0
+		3: hit_box.position.x = float(old_pos.y - cell.y) / shape_dim.x #reversed 1
 
+	return true
 
 func girar(amount: float):
+	is_rotating = true
 	var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "rotation:y", rotation.y + amount * (PI/2), rotation_speed)
 	tween.tween_callback(is_not_rotating)
@@ -83,18 +78,27 @@ func _process(delta):
 		if time < 0:
 			time = 0
 
+@onready var left_ray = $hitBox/LeftRay
+@onready var right_ray = $hitBox/RightRay
+#
+func is_rotation_valid(direction: int, changed_cell: bool) -> bool:
+	#if the orientation is reversed, reversed the suposed direction
+	#isso eh um hack fenomenal, mas fdc
+	if changed_cell:
+		var tmp = left_ray
+		left_ray = right_ray
+		right_ray = tmp
+		
+	if direction == 1:
+		return not left_ray.is_colliding()
+	else:
+		return not right_ray.is_colliding()
+
 func _on_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:
-		#print(position)
-		print(hit_box.shape.size)
-		#print(position)
-		#todo: the selected_cell corresponde a celula da grid, não do obj
 		var selected_cell = Grid.world_to_grid(position)
-		#print(selected_cell)
-		
 		if not is_rotating:
-			is_rotating = true
-			if event.button_index == MOUSE_BUTTON_LEFT:
-				girar(1)
-			else:
-				girar(-1)
+			var changed_cell = set_item_center(selected_cell)
+			var dir = 1 if event.button_index == MOUSE_BUTTON_LEFT else -1 
+			if is_rotation_valid(dir, changed_cell):
+				girar(dir)

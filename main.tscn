@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c510cmtigpytf"]
+[gd_scene load_steps=7 format=3 uid="uid://c510cmtigpytf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_xlcdy"]
 [ext_resource type="PackedScene" uid="uid://b6pnse6exakcf" path="res://scanner.tscn" id="2_ttui5"]
 [ext_resource type="PackedScene" uid="uid://dt16omp1thmnp" path="res://2b_1_item.tscn" id="3_5qdp0"]
+[ext_resource type="PackedScene" uid="uid://byihu3aetkxaa" path="res://item.tscn" id="3_hlcwg"]
 
 [sub_resource type="Environment" id="Environment_ftk5f"]
 glow_enabled = true
@@ -43,8 +44,10 @@ one_shot = true
 wait_time = 100.0
 one_shot = true
 
+[node name="item" parent="." instance=ExtResource("3_hlcwg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+
 [node name="2b1_item" parent="." instance=ExtResource("3_5qdp0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="stepTimer" to="." method="_on_step_timer_timeout"]
