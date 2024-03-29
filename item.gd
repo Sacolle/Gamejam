@@ -44,6 +44,7 @@ func stopped_getting_hit():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	label.text = str(time_to_scan - time)
+	$ProgressBar.value = (100 * time) / time_to_scan
 	var side = (int(rotation.y / (PI/2)) + 4) % 4 
 	if is_hit and barcode_face == side:
 		time += delta
