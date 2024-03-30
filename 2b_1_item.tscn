@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://2b_1_item.gd" id="1_kk4wx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_reqyb"]
-size = Vector3(2, 1, 1)
+size = Vector3(1.8, 0.8, 0.8)
 
 [sub_resource type="BoxMesh" id="BoxMesh_oku1i"]
 lightmap_size_hint = Vector2i(14, 21)
@@ -37,7 +37,7 @@ collide_with_areas = true
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="Center" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38, -0.1)
 pixel_size = 0.01
 billboard = 1
 no_depth_test = true

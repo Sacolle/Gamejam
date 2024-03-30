@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c510cmtigpytf"]
+[gd_scene load_steps=9 format=3 uid="uid://c510cmtigpytf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_xlcdy"]
 [ext_resource type="PackedScene" uid="uid://b6pnse6exakcf" path="res://scanner.tscn" id="2_ttui5"]
 [ext_resource type="PackedScene" uid="uid://dt16omp1thmnp" path="res://2b_1_item.tscn" id="3_5qdp0"]
 [ext_resource type="PackedScene" uid="uid://byihu3aetkxaa" path="res://item.tscn" id="3_hlcwg"]
+[ext_resource type="Shader" path="res://GroundGridShader.gdshader" id="3_pt24n"]
 
 [sub_resource type="Environment" id="Environment_ftk5f"]
 glow_enabled = true
@@ -11,6 +12,10 @@ glow_enabled = true
 [sub_resource type="QuadMesh" id="QuadMesh_o2jq0"]
 size = Vector2(3, 10)
 orientation = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vhbrv"]
+render_priority = 0
+shader = ExtResource("3_pt24n")
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_xlcdy")
@@ -31,6 +36,7 @@ text = "Score: "
 [node name="chao" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 2.79002)
 mesh = SubResource("QuadMesh_o2jq0")
+surface_material_override/0 = SubResource("ShaderMaterial_vhbrv")
 
 [node name="sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.90978, -0.398177, 0.117281, 0, 0.282542, 0.959255, -0.41509, -0.872711, 0.257051, -2.16818, 2.285, 1)

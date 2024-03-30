@@ -97,6 +97,8 @@ func is_rotation_valid(direction: int, changed_cell: bool) -> bool:
 func _on_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:
 		var selected_cell = Grid.world_to_grid(position)
+		print(position)
+		print(selected_cell)
 		if not is_rotating:
 			var changed_cell = set_item_center(selected_cell)
 			var dir = 1 if event.button_index == MOUSE_BUTTON_LEFT else -1 
