@@ -1,15 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dt16omp1thmnp"]
+[gd_scene load_steps=6 format=3 uid="uid://dt16omp1thmnp"]
 
 [ext_resource type="Script" path="res://2b_1_item.gd" id="1_kk4wx"]
 [ext_resource type="Texture2D" uid="uid://y34pej5icsld" path="res://assets/debug/x.png" id="2_jyia4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_reqyb"]
 size = Vector3(1.9, 0.9, 0.9)
-
-[sub_resource type="BoxMesh" id="BoxMesh_518d8"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tae0l"]
-albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_oku1i"]
 lightmap_size_hint = Vector2i(14, 21)
@@ -20,23 +15,16 @@ albedo_color = Color(0, 1, 0, 1)
 [node name="2b1_item" type="Area3D"]
 script = ExtResource("1_kk4wx")
 
+[node name="RotationValidator" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.002, 0)
+target_position = Vector3(-2, 0, 0)
+collide_with_areas = true
+debug_shape_custom_color = Color(1, 0.270588, 0, 1)
+debug_shape_thickness = 5
+
 [node name="hitBox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.00198364, 0)
 shape = SubResource("BoxShape3D_reqyb")
-
-[node name="CollisionRay" type="RayCast3D" parent="hitBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.63601e-05, 0)
-target_position = Vector3(-2, 0, 0)
-collide_with_areas = true
-
-[node name="rayVis" type="Node3D" parent="hitBox/CollisionRay"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="hitBox/CollisionRay/rayVis"]
-transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1, 0, 0)
-mesh = SubResource("BoxMesh_518d8")
-surface_material_override/0 = SubResource("StandardMaterial3D_tae0l")
 
 [node name="mesh" type="MeshInstance3D" parent="hitBox"]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00198364, 0)
@@ -44,17 +32,25 @@ mesh = SubResource("BoxMesh_oku1i")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ttk74")
 
-[node name="Label3D" type="Label3D" parent="hitBox/mesh"]
-transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.245469, -0.00198364, 0)
+[node name="Label3D" type="Label3D" parent="hitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.490938, 0, 0)
 billboard = 1
 no_depth_test = true
 text = "A"
 
-[node name="Label3D2" type="Label3D" parent="hitBox/mesh"]
-transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, -0.237652, -0.00198364, 0)
+[node name="Label3D2" type="Label3D" parent="hitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.475305, 0, 0)
 billboard = 1
 no_depth_test = true
 text = "B"
+
+[node name="CenterOld" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38, -0.1)
+visible = false
+pixel_size = 0.01
+billboard = 1
+no_depth_test = true
+text = "."
 
 [node name="A" type="Marker3D" parent="."]
 
