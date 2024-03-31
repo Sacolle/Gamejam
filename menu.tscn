@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbfpiltp1mwdw"]
+[gd_scene load_steps=4 format=3 uid="uid://cbfpiltp1mwdw"]
 
 [ext_resource type="Texture2D" uid="uid://mnsckkerkib2" path="res://icon.svg" id="1_0usdk"]
+[ext_resource type="Script" path="res://menu.gd" id="1_gkga2"]
 [ext_resource type="Theme" uid="uid://c5qfcdwvpft2g" path="res://ui_theme.tres" id="2_huf66"]
 
 [node name="MenuControl" type="Control"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gkga2")
 
 [node name="bg" type="TextureRect" parent="."]
 layout_mode = 1
@@ -54,3 +56,7 @@ text = "Opções"
 [node name="SairBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sair"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/JogarBtn" to="." method="_on_jogar_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/OpcoesBtn" to="." method="_on_opcoes_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/SairBtn" to="." method="_on_sair_btn_pressed"]
