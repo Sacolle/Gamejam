@@ -34,7 +34,7 @@ billboard = 1
 text = "Score: "
 
 [node name="chao" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 2.79002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 2.5)
 mesh = SubResource("QuadMesh_o2jq0")
 surface_material_override/0 = SubResource("ShaderMaterial_vhbrv")
 
@@ -54,6 +54,15 @@ one_shot = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
 
 [node name="2b1_item" parent="." instance=ExtResource("3_5qdp0")]
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45861, 0.498016, -0.371917)
+
+[node name="Label3D" type="Label3D" parent="."]
+billboard = 1
+no_depth_test = true
+text = "ORIGIN
+"
 
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="stepTimer" to="." method="_on_step_timer_timeout"]

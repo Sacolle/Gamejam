@@ -38,18 +38,23 @@ func set_item_center(cell: Vector2i) -> bool:
 	if cell.x == position.x and cell.y == position.z: 
 		return false
 	var old_pos = Vector2(position.x, position.z)
+	print("Changed center from ", old_pos, " to ", cell)
 	#puts the position at the cell
+	#hit_box.position += $A.position - $B.position
+	
 	position.x = cell.x
 	position.z = cell.y
 	
+	
 	#offsets the hitbox and mesh based on current orientation
 	var orientation = current_orientation()
-	var shape_dim = Vector2(hit_box.shape.size.x, hit_box.shape.size.z)
+	var shape_dim = Vector2(2.0, hit_box.shape.size.z)
 	match orientation:
 		0: hit_box.position.x = float(old_pos.x - cell.x) / shape_dim.x
 		1: hit_box.position.x = float(cell.y - old_pos.y) / shape_dim.x
 		2: hit_box.position.x = float(cell.x - old_pos.x) / shape_dim.x #reversed 0
 		3: hit_box.position.x = float(old_pos.y - cell.y) / shape_dim.x #reversed 1
+	
 
 	return true
 
@@ -97,8 +102,10 @@ func is_rotation_valid(direction: int, changed_cell: bool) -> bool:
 func _on_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:
 		var selected_cell = Grid.world_to_grid(position)
+		var local_cell = Grid.world_to_grid(position - self.position)
 		print(position)
 		print(selected_cell)
+		print("Local", local_cell)
 		if not is_rotating:
 			var changed_cell = set_item_center(selected_cell)
 			var dir = 1 if event.button_index == MOUSE_BUTTON_LEFT else -1 
