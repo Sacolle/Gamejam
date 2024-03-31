@@ -38,7 +38,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="stepTimer" type="Timer" parent="."]
-wait_time = 100.0
+wait_time = 5.0
 one_shot = true
 
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
