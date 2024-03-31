@@ -1,0 +1,18 @@
+[gd_resource type="QuadMesh" load_steps=5 format=3 uid="uid://utoangjtkt02"]
+
+[ext_resource type="Texture2D" uid="uid://cmivp61osk01c" path="res://assets/tiles/esteira_0.png" id="1_8veix"]
+[ext_resource type="Texture2D" uid="uid://bkwwqwm7ywyqe" path="res://assets/tiles/esteira_1.png" id="2_6j7wt"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_2aoj2"]
+frames = 2
+frame_0/texture = ExtResource("1_8veix")
+frame_1/texture = ExtResource("2_6j7wt")
+frame_1/duration = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4o3t5"]
+albedo_texture = SubResource("AnimatedTexture_2aoj2")
+
+[resource]
+lightmap_size_hint = Vector2i(52, 52)
+material = SubResource("StandardMaterial3D_4o3t5")
+orientation = 1
