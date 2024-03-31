@@ -3,38 +3,39 @@ extends Area3D
 signal item_scanned(value)
 
 @export var time_to_scan = 2
-@export var barcode_orientation = 0
 @export var item_value = 1
-@export var barcode_cell = Vector2i(0,0)
 @export var rotation_speed = 0.5
+@export var barcode_orientation = 0
+
+
 
 var time: float = 0
 var is_hit = false
+#não usado
 var is_rotating = false
-
-enum Collision { waiting, yes, no }
-
-var collided: Collision = Collision.no
 
 @onready var hit_box = $hitBox
 @onready var ray = $hitBox/CollisionRay
+@onready var label = $TimeScanned
+@onready var barcode = $hitBox/barCode
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ray.add_exception(self)
+	barcode.barcode_hit.connect(hit)
 	pass # Replace with function body.
 
 func start(pos):
 	position = pos
 	# pode ser a celula (1,0) ou (0, 0)
 	#barcode_cell = Vector2(randi_range(0,1), 0)	
-	barcode_orientation = randi_range(0, 3)
 
 func step(amount):
 	position += Vector3(0, 0, 1) * amount
 
-func hit(scan_pos):
-	is_hit = true
+func hit():
+	if current_orientation() == barcode_orientation:
+		is_hit = true
 
 func stopped_getting_hit():
 	is_hit = false
@@ -80,7 +81,8 @@ func current_orientation() -> int:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if is_hit and barcode_orientation == current_orientation():
+	label.text = str(time_to_scan - time)
+	if is_hit:
 		time += delta
 		if time > time_to_scan:
 			item_scanned.emit(item_value)
@@ -90,21 +92,12 @@ func _process(delta):
 		if time < 0:
 			time = 0
 
-#
-func is_rotation_valid(direction: int) -> bool:
-	#ray.position = position
-	ray.rotation.y += direction * (PI/2)
-	ray.force_raycast_update()
-	var is_colliding = ray.is_colliding()
-	ray.rotation.y = 0
-	return not is_colliding
-
-
 
 func _on_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed():
+		print("hey")
 		var selected_cell = Grid.world_to_grid(position)
-		var local_cell = Grid.world_to_grid(position - self.position)
+		#var local_cell = Grid.world_to_grid(position - self.position)
 		"""
 		if not (local_cell.x == 0 and local_cell.y == 0):
 			print("posição", position)
@@ -117,10 +110,19 @@ func _on_input_event(camera, event, position, normal, shape_idx):
 			var changed_cell = set_item_center(selected_cell)
 			var dir = 1 if event.button_index == MOUSE_BUTTON_LEFT else -1 
 			var old_rotation = rotation.y 
+			var moved = true
 			
-			#jeito mais mongol de se fazer, mas fazer oq
+			#gira o objeto
 			rotation.y += dir * (PI/2)
+			#força o update do raycast no msm frame
 			ray.force_raycast_update()
+			#se colidiu, desfaz a rotação
+			#TODO: mostrar para o player, com alguma animação que a rotação falhou
 			if ray.is_colliding():
+				moved = false
 				rotation.y = old_rotation
+				
+			#se o objeto girou, o barcode não está mais em contato com o laser
+			if moved:
+				is_hit = false
 

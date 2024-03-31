@@ -22,7 +22,6 @@ script = ExtResource("1_xlcdy")
 
 [node name="scanner" parent="." instance=ExtResource("2_ttui5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.79002)
-visible = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.67559, -0.638501, 0.368639, 0, 0.5, 0.866025, -0.737277, -0.585078, 0.337795, 3.97061, 5.71465, 4.73546)

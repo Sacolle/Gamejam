@@ -29,7 +29,7 @@ func _process(delta):
 			var pos = c.position
 			laser.scale.z  = (position.z - pos.z)/2
 			laser.position.z = -(position.z - pos.z)/2
-			c.hit(position)
+			c.hit()
 		else:
 			laser.scale.z  = laser_base_scale
 			laser.position.z = -laser_base_scale
