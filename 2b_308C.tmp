@@ -1,12 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://dt16omp1thmnp"]
+[gd_scene load_steps=9 format=3 uid="uid://dt16omp1thmnp"]
 
 [ext_resource type="Script" path="res://2b_1_item.gd" id="1_kk4wx"]
 [ext_resource type="Texture2D" uid="uid://y34pej5icsld" path="res://assets/debug/x.png" id="2_jyia4"]
 [ext_resource type="PackedScene" uid="uid://ddv5b3y04rces" path="res://bar_code.tscn" id="2_m70pe"]
-[ext_resource type="PackedScene" uid="uid://cxqtp2r1r8aq7" path="res://collision_detection.tscn" id="4_knea6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_reqyb"]
-size = Vector3(1.8, 0.9, 0.9)
+size = Vector3(1.9, 0.9, 0.9)
+
+[sub_resource type="BoxMesh" id="BoxMesh_518d8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tae0l"]
+albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_oku1i"]
 lightmap_size_hint = Vector2i(14, 21)
@@ -14,16 +18,8 @@ lightmap_size_hint = Vector2i(14, 21)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttk74"]
 albedo_color = Color(0, 1, 0, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_518d8"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tae0l"]
-albedo_color = Color(1, 0, 0, 1)
-
-[node name="2b1_item" type="Area3D" node_paths=PackedStringArray("hit_box", "collision_detector", "barcode") groups=["itens"]]
+[node name="2b1_item" type="Area3D" groups=["itens"]]
 script = ExtResource("1_kk4wx")
-hit_box = NodePath("hitBox")
-collision_detector = NodePath("hitBox/collisionDetection")
-barcode = NodePath("hitBox/barCode")
 
 [node name="hitBox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.00198364, 0)
@@ -32,8 +28,22 @@ shape = SubResource("BoxShape3D_reqyb")
 [node name="barCode" parent="hitBox" instance=ExtResource("2_m70pe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 
+[node name="CollisionRay" type="RayCast3D" parent="hitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.63601e-05, 0)
+target_position = Vector3(-2, 0, 0)
+collide_with_areas = true
+
+[node name="rayVis" type="Node3D" parent="hitBox/CollisionRay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hitBox/CollisionRay/rayVis"]
+transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1, 0, 0)
+mesh = SubResource("BoxMesh_518d8")
+surface_material_override/0 = SubResource("StandardMaterial3D_tae0l")
+
 [node name="mesh" type="MeshInstance3D" parent="hitBox"]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 0.95, 0, 0.00198364, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 0.7, 0, 0.00198364, 0)
 mesh = SubResource("BoxMesh_oku1i")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ttk74")
@@ -51,23 +61,6 @@ visible = false
 billboard = 1
 no_depth_test = true
 text = "B"
-
-[node name="collisionDetection" parent="hitBox" instance=ExtResource("4_knea6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.00198364, 0)
-
-[node name="CollisionRay" type="RayCast3D" parent="hitBox/collisionDetection"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
-target_position = Vector3(-2, 0, 0)
-collide_with_areas = true
-
-[node name="rayVis" type="Node3D" parent="hitBox/collisionDetection/CollisionRay"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="hitBox/collisionDetection/CollisionRay/rayVis"]
-transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1, 0, 0)
-mesh = SubResource("BoxMesh_518d8")
-surface_material_override/0 = SubResource("StandardMaterial3D_tae0l")
 
 [node name="A" type="Marker3D" parent="."]
 visible = false
@@ -89,4 +82,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.055, 0.26)
 billboard = 1
 text = "0"
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

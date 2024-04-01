@@ -26,7 +26,7 @@ func start(pos):
 func step(amount):
 	position += Vector3(0, 0, 1) * amount
 
-func hit(scan_pos):
+func hit():
 	is_hit = true
 
 func stopped_getting_hit():
@@ -57,10 +57,10 @@ func _process(delta):
 		if time < 0:
 			time = 0
 
-func _on_input_event(camera, event, position, normal, shape_idx):
+func _on_input_event(_camera, event, pos, _normal, _shape_idx):
 	if event is InputEventMouseButton:
 		#print(position)
-		print(Grid.world_to_grid(position))
+		print(Grid.world_to_grid(pos))
 		if not is_rotating:
 			is_rotating = true
 			if event.button_index == MOUSE_BUTTON_LEFT:

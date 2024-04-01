@@ -1,5 +1,7 @@
 extends Area3D
 
+class_name Barcode
+
 signal barcode_hit
 
 # Called when the node enters the scene tree for the first time.
@@ -10,5 +12,5 @@ func hit():
 	barcode_hit.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass

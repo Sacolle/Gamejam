@@ -20,7 +20,7 @@ func _ready():
 	laser.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("scan"):
 		#anim.play("laser_on")
 		laser.visible = true
@@ -29,7 +29,11 @@ func _process(delta):
 			var pos = c.position
 			laser.scale.z  = (position.z - pos.z)/2
 			laser.position.z = -(position.z - pos.z)/2
-			c.hit()
+			#colidiu com o codigo de barra, se não o item n está sendo acertado
+			if c.collision_layer == 2:
+				c.hit()
+			else:
+				c.set_hit(false)
 		else:
 			laser.scale.z  = laser_base_scale
 			laser.position.z = -laser_base_scale

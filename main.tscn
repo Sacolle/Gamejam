@@ -50,9 +50,10 @@ wait_time = 100.0
 one_shot = true
 
 [node name="item" parent="." instance=ExtResource("3_hlcwg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00715, 0, 1)
 
 [node name="2b1_item" parent="." instance=ExtResource("3_5qdp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45861, 0.498016, -0.371917)
