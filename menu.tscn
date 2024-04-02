@@ -80,6 +80,7 @@ expand_mode = 5
 layout_mode = 2
 theme = ExtResource("2_huf66")
 text = " UAUmart"
+metadata/_edit_lock_ = true
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -99,6 +100,12 @@ theme = ExtResource("2_huf66")
 theme_type_variation = &"FlatButton"
 text = "Jogar"
 
+[node name="CarregarBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_huf66")
+theme_type_variation = &"FlatButton"
+text = "Carregar"
+
 [node name="OpcoesBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("2_huf66")
@@ -112,5 +119,7 @@ theme_type_variation = &"FlatButton"
 text = "Sair"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/JogarBtn" to="." method="_on_jogar_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/CarregarBtn" to="." method="_on_carregar_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/CarregarBtn" to="." method="_on_jogar_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/OpcoesBtn" to="." method="_on_opcoes_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/SairBtn" to="." method="_on_sair_btn_pressed"]
