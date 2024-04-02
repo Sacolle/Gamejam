@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddv5b3y04rces"]
+
+[ext_resource type="Script" path="res://components/bar_code.gd" id="1_minww"]
+[ext_resource type="Texture2D" uid="uid://y34pej5icsld" path="res://assets/debug/x.png" id="2_bh0j8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7guva"]
+size = Vector3(1, 1, 0)
+
+[node name="barCode" type="Area3D"]
+collision_layer = 2
+collision_mask = 2
+input_ray_pickable = false
+script = ExtResource("1_minww")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7guva")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+texture = ExtResource("2_bh0j8")
