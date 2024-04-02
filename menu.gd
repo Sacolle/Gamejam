@@ -18,8 +18,8 @@ func _on_carregar_btn_pressed():
 func _on_opcoes_btn_pressed():
 	pass # TODO interface de opcoes
 
-
 func _on_sair_btn_pressed():
 	get_tree().quit()
+
 
 

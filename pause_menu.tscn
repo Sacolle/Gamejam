@@ -1,33 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyb88nidcvb51"]
+[gd_scene load_steps=6 format=3 uid="uid://cb3xfowuffetr"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_gkga2"]
-[ext_resource type="Texture2D" uid="uid://dp557lti83w5p" path="res://assets/pc/bonitrevas.png" id="2_7sybx"]
-[ext_resource type="Theme" uid="uid://e3wa1604kqud" path="res://ui_theme.tres" id="2_huf66"]
-[ext_resource type="Texture2D" uid="uid://lriuoepufebt" path="res://assets/bg.png" id="2_rwdav"]
-[ext_resource type="Texture2D" uid="uid://esfjrl8dg062" path="res://assets/Uaumart.png" id="4_qsru8"]
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_yixaj"]
+[ext_resource type="Texture2D" uid="uid://lriuoepufebt" path="res://assets/bg.png" id="2_7loog"]
+[ext_resource type="Texture2D" uid="uid://dp557lti83w5p" path="res://assets/pc/bonitrevas.png" id="3_habyb"]
+[ext_resource type="Theme" uid="uid://e3wa1604kqud" path="res://ui_theme.tres" id="5_uu8s0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8ioq"]
 
-[node name="MenuControl" type="Control"]
+[node name="PauseMenuControl" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_gkga2")
+script = ExtResource("1_yixaj")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.466667)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_rwdav")
+texture = ExtResource("2_7loog")
 metadata/_edit_lock_ = true
 
 [node name="boni_menu" type="TextureRect" parent="TextureRect"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.84
@@ -41,7 +43,7 @@ offset_bottom = 476.168
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.685, 0.685)
-texture = ExtResource("2_7sybx")
+texture = ExtResource("3_habyb")
 stretch_mode = 5
 metadata/_edit_lock_ = true
 
@@ -52,33 +54,31 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -526.0
-offset_top = -204.0
-offset_right = 121.68
-offset_bottom = 205.0
+offset_left = -323.84
+offset_top = -268.5
+offset_right = 323.84
+offset_bottom = 268.5
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 metadata/_edit_lock_ = true
 
-[node name="Título" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
-texture = ExtResource("4_qsru8")
-expand_mode = 5
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_huf66")
+theme = ExtResource("5_uu8s0")
 text = " UAUmart"
 metadata/_edit_lock_ = true
 
@@ -94,31 +94,30 @@ size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.38
 metadata/_edit_lock_ = true
 
-[node name="JogarBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+[node name="ContinuarBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("2_huf66")
-theme_type_variation = &"FlatButton"
-text = "Jogar"
+theme = ExtResource("5_uu8s0")
+text = "Continuar"
 
-[node name="CarregarBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+[node name="SalvarBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("2_huf66")
+theme = ExtResource("5_uu8s0")
 theme_type_variation = &"FlatButton"
-text = "Carregar"
+text = "Salvar"
 
 [node name="OpcoesBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("2_huf66")
+theme = ExtResource("5_uu8s0")
 theme_type_variation = &"FlatButton"
 text = "Opções"
 
 [node name="SairBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("2_huf66")
+theme = ExtResource("5_uu8s0")
 theme_type_variation = &"FlatButton"
 text = "Sair"
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/JogarBtn" to="." method="_on_jogar_btn_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/CarregarBtn" to="." method="_on_carregar_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/ContinuarBtn" to="." method="_on_continuar_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/SalvarBtn" to="." method="_on_salvar_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/OpcoesBtn" to="." method="_on_opcoes_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/SairBtn" to="." method="_on_sair_btn_pressed"]
