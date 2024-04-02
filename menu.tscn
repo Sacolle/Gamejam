@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyb88nidcvb51"]
+[gd_scene load_steps=7 format=3 uid="uid://cyb88nidcvb51"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_gkga2"]
 [ext_resource type="Texture2D" uid="uid://dp557lti83w5p" path="res://assets/pc/bonitrevas.png" id="2_7sybx"]
 [ext_resource type="Theme" uid="uid://e3wa1604kqud" path="res://ui_theme.tres" id="2_huf66"]
-[ext_resource type="Texture2D" uid="uid://yo8h3qfyy1e0" path="res://assets/TITLE.png" id="3_rmjoe"]
+[ext_resource type="Texture2D" uid="uid://lriuoepufebt" path="res://assets/bg.png" id="2_rwdav"]
+[ext_resource type="Texture2D" uid="uid://esfjrl8dg062" path="res://assets/Uaumart.png" id="4_qsru8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8ioq"]
 
@@ -16,28 +17,30 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gkga2")
 
-[node name="bg" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.211765, 0.133333, 0.211765, 1)
+texture = ExtResource("2_rwdav")
 metadata/_edit_lock_ = true
 
-[node name="boni_menu" type="TextureRect" parent="bg"]
-z_index = 1
+[node name="boni_menu" type="TextureRect" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.84
 anchor_top = 0.179
 anchor_right = 0.994
 anchor_bottom = 1.0
-offset_left = -283.0
+offset_left = -214.68
+offset_top = -121.992
+offset_right = 68.3199
+offset_bottom = 476.168
 grow_horizontal = 0
 grow_vertical = 2
-scale = Vector2(0.82, 0.82)
+scale = Vector2(0.685, 0.685)
 texture = ExtResource("2_7sybx")
 stretch_mode = 5
 metadata/_edit_lock_ = true
@@ -68,10 +71,15 @@ size_flags_stretch_ratio = 0.0
 metadata/_edit_lock_ = true
 
 [node name="Título" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
-texture = ExtResource("3_rmjoe")
+texture = ExtResource("4_qsru8")
 expand_mode = 5
-metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_huf66")
+text = " UAUmart"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -88,14 +96,19 @@ metadata/_edit_lock_ = true
 [node name="JogarBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("2_huf66")
+theme_type_variation = &"FlatButton"
 text = "Jogar"
 
 [node name="OpcoesBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme = ExtResource("2_huf66")
+theme_type_variation = &"FlatButton"
 text = "Opções"
 
 [node name="SairBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme = ExtResource("2_huf66")
+theme_type_variation = &"FlatButton"
 text = "Sair"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/JogarBtn" to="." method="_on_jogar_btn_pressed"]
