@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dt16omp1thmnp"]
 
-[ext_resource type="Script" path="res://2b_1_item.gd" id="1_kk4wx"]
+[ext_resource type="Script" path="res://components/item_script.gd" id="1_p1w7n"]
 [ext_resource type="PackedScene" uid="uid://ddv5b3y04rces" path="res://components/bar_code.tscn" id="2_egua6"]
 [ext_resource type="Texture2D" uid="uid://y34pej5icsld" path="res://assets/debug/x.png" id="2_jyia4"]
 [ext_resource type="PackedScene" uid="uid://cxqtp2r1r8aq7" path="res://components/collision_detection.tscn" id="3_mks0y"]
@@ -20,7 +20,7 @@ albedo_color = Color(0, 1, 0, 1)
 albedo_color = Color(1, 0, 0, 1)
 
 [node name="2b1_item" type="Area3D" groups=["itens"]]
-script = ExtResource("1_kk4wx")
+script = ExtResource("1_p1w7n")
 
 [node name="hitBox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.00198364, 0)

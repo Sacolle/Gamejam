@@ -19,9 +19,9 @@ var is_hit = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	assert(hit_box != null)
-	assert(collision_detector != null)
-	assert(barcode != null)
+	barcode = $hitBox/barCode
+	collision_detector = $hitBox/collisionDetection
+	hit_box = $hitBox
 	#conecta ao sinal de colisão do barcode
 	barcode.barcode_hit.connect(hit)
 
@@ -47,6 +47,8 @@ func set_hit(h: bool):
 func set_item_center(cell: Vector2i) -> bool:
 	if cell.x == position.x and cell.y == position.z: 
 		return false
+	
+	#print("old hit box pos: ", hit_box.position)
 	var old_pos = Vector2(position.x, position.z)
 
 	position.x = cell.x
@@ -62,10 +64,13 @@ func set_item_center(cell: Vector2i) -> bool:
 		3: offset = Vector2(old_pos.y - cell.y, old_pos.x - cell.x) #reversed 1
 
 	var shape_dim = Vector2(hit_box.shape.size.x, hit_box.shape.size.z)
-	print("shape_dim ", shape_dim)
+	#print("shape_dim: ", shape_dim)
+	#print("offset: ", offset)
 	
-	hit_box.position.x = offset.x / shape_dim.x
-	hit_box.position.z = offset.y / shape_dim.y
+	hit_box.position.x += offset.x
+	hit_box.position.z += offset.y
+	
+	#print("hit box pos: ", hit_box.position)
 
 	return true
 
@@ -88,8 +93,20 @@ func _process(delta):
 func _on_input_event(_camera, event, pos, _normal, _shape_idx):
 	if event is InputEventMouseButton and event.is_pressed():
 		var selected_cell = Grid.world_to_grid(pos)
-		#if processed_collision:
+		var local_cell = Grid.world_to_grid(pos - position)
+		#print("Selected Pos: ", pos)
+		#print("selected cell: ", selected_cell)
+		#print("Local", local_cell)
+		"""
+		if not (local_cell.x == 0 and local_cell.y == 0):
+			print("posição", position)
+			print("celula selecionada", selected_cell)
+			print("Local", local_cell)
+			print("orientação:", current_orientation())
+			print("rotação: ", (rotation.y / PI) * 180)
+		"""	
 		var _changed_cell = set_item_center(selected_cell)
+
 		var dir = 1 if event.button_index == MOUSE_BUTTON_LEFT else -1 
 		#gira o objeto
 		var old_rotation = rotation
