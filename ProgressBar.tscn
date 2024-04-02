@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhmcv3oumcmvo"]
+
+[ext_resource type="Script" path="res://ProgressBar.gd" id="1_3cpuc"]
+[ext_resource type="Texture2D" uid="uid://mnsckkerkib2" path="res://icon.svg" id="1_yn6kt"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0ci0n"]
+viewport_path = NodePath("SubViewport")
+
+[node name="ProgressBar" type="Node3D"]
+script = ExtResource("1_3cpuc")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = SubResource("ViewportTexture_0ci0n")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="Node2D" type="Node2D" parent="SubViewport"]
+scale = Vector2(4, 4)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="SubViewport/Node2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+fill_mode = 4
+texture_progress = ExtResource("1_yn6kt")
