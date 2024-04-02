@@ -11,11 +11,10 @@ var score = 0
 func _ready():
 	$spawnTimer.start()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	spawn_enemies()
-	step_enemies()
+func _process(_delta):
+	#spawn_enemies()
+	#step_enemies()
 	$Camera3D/ScoreLabel.text = "Score: " + str(score)
 	
 func spawn_enemies():

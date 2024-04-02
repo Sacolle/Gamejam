@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c510cmtigpytf"]
+[gd_scene load_steps=11 format=3 uid="uid://c510cmtigpytf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_xlcdy"]
 [ext_resource type="PackedScene" uid="uid://b6pnse6exakcf" path="res://scanner.tscn" id="2_ttui5"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://byihu3aetkxaa" path="res://item.tscn" id="3_hlcwg"]
 [ext_resource type="Shader" path="res://GroundGridShader.gdshader" id="3_pt24n"]
 [ext_resource type="PackedScene" uid="uid://boy3n51rrwm7y" path="res://2b_2_item.tscn" id="6_r3krq"]
-[ext_resource type="PackedScene" uid="uid://c4rqnhuy1dkgy" path="res://1b_1_item.tscn" id="7_lutkg"]
 [ext_resource type="PackedScene" uid="uid://rkhtc6n7vb42" path="res://3b_1_item.tscn" id="7_whgdj"]
 
 [sub_resource type="Environment" id="Environment_ftk5f"]
@@ -49,7 +48,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="stepTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 100.0
 one_shot = true
 
 [node name="item" parent="." instance=ExtResource("3_hlcwg")]
@@ -60,12 +59,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00715, 0, 1)
 [node name="2b2_item" parent="." instance=ExtResource("6_r3krq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
-[node name="1b1_item" parent="." instance=ExtResource("7_lutkg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-
-[node name="3b1_item" parent="." instance=ExtResource("7_whgdj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5)
-
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45861, 0.498016, -0.371917)
 
@@ -74,6 +67,9 @@ billboard = 1
 no_depth_test = true
 text = "ORIGIN
 "
+
+[node name="3b1_item" parent="." instance=ExtResource("7_whgdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5)
 
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="stepTimer" to="." method="_on_step_timer_timeout"]
