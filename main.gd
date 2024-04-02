@@ -10,8 +10,6 @@ var score = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$spawnTimer.start()
-	$"2b1_item".start(Vector3(3, 0, 0))
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
