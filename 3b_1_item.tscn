@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://rkhtc6n7vb42"]
+[gd_scene load_steps=11 format=3 uid="uid://rkhtc6n7vb42"]
 
 [ext_resource type="Script" path="res://components/item_script.gd" id="1_58vvc"]
 [ext_resource type="PackedScene" uid="uid://ddv5b3y04rces" path="res://components/bar_code.tscn" id="2_m3sbr"]
 [ext_resource type="PackedScene" uid="uid://cxqtp2r1r8aq7" path="res://components/collision_detection.tscn" id="3_bspon"]
 [ext_resource type="Texture2D" uid="uid://y34pej5icsld" path="res://assets/debug/x.png" id="4_cwt5g"]
+[ext_resource type="PackedScene" uid="uid://0luxesgg6tq0" path="res://components/selected_cell.tscn" id="4_xgpsl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_reqyb"]
 size = Vector3(2.89443, 0.9, 0.9)
@@ -84,5 +85,9 @@ texture = ExtResource("4_cwt5g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.055, 0.26)
 billboard = 1
 text = "0"
+
+[node name="SelectedCell" parent="." instance=ExtResource("4_xgpsl")]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, -0.002, 0)
+skeleton = NodePath("../hitBox")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
