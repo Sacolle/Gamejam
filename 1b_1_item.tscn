@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4rqnhuy1dkgy"]
+[gd_scene load_steps=12 format=3 uid="uid://c4rqnhuy1dkgy"]
 
 [ext_resource type="Script" path="res://components/item_script.gd" id="1_4lj56"]
 [ext_resource type="PackedScene" uid="uid://ddv5b3y04rces" path="res://components/bar_code.tscn" id="2_1ldkg"]
 [ext_resource type="PackedScene" uid="uid://cxqtp2r1r8aq7" path="res://components/collision_detection.tscn" id="3_4ftwg"]
 [ext_resource type="PackedScene" uid="uid://0luxesgg6tq0" path="res://components/selected_cell.tscn" id="4_mb2vu"]
 [ext_resource type="Texture2D" uid="uid://y34pej5icsld" path="res://assets/debug/x.png" id="4_tena5"]
+[ext_resource type="PackedScene" uid="uid://xgg4mnfsn70o" path="res://components/box_sfx.tscn" id="6_hmuqu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_reqyb"]
 size = Vector3(0.9, 0.9, 0.9)
@@ -86,5 +87,7 @@ text = "0"
 
 [node name="SelectedCell" parent="." instance=ExtResource("4_mb2vu")]
 skeleton = NodePath("../hitBox")
+
+[node name="BoxSfx" parent="." instance=ExtResource("6_hmuqu")]
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -13,6 +13,7 @@ signal item_scanned(value)
 #@export var label
 @onready var barcode = $hitBox/barCode
 @onready var selected_cell = $SelectedCell
+@onready var sfx = $BoxSfx
 
 #private variables
 var time: float = 0
@@ -116,3 +117,6 @@ func _on_input_event(_camera, event, pos, _normal, _shape_idx):
 		rotation.y += dir * (PI/2)
 		if collision_detector.is_colliding():
 			rotation = old_rotation
+		else:
+			#did rotate
+			sfx.play()

@@ -28,9 +28,13 @@ func spawn_enemies():
 
 func _on_item_scanned(amount):
 	score += amount
+	#not playing in this current scene, because the itens did not spawn via the spawner
+	#therefore they did not have their signals connected,
+	$ItemCheckedSfx.play()
 
 func step_enemies():
 	if step:
+		$BeltStepSfx.play()
 		get_tree().call_group("itens", "step", 1)
 		step = false
 		$stepTimer.start()
