@@ -15,12 +15,18 @@ var laser = $lazer
 @onready
 var anim = $AnimationPlayer
 
+@onready 
+var sound_player = $LazerHumPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	laser.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if Input.is_action_just_pressed("scan"):
+		sound_player.play()
+	
 	if Input.is_action_pressed("scan"):
 		#anim.play("laser_on")
 		laser.visible = true
@@ -40,6 +46,7 @@ func _process(_delta):
 	
 	if Input.is_action_just_released("scan"):
 		laser.visible = false
+		sound_player.stop()
 		get_tree().call_group("itens", "stopped_getting_hit")
 	
 	var old_pos = position.x
