@@ -21,6 +21,7 @@ var sound_player = $LazerHumPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	laser.visible = false
+	anim.play("laser_on")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
