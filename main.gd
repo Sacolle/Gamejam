@@ -104,3 +104,4 @@ func _on_kill_box_area_entered(area):
 	#TODO: the game over
 	print("game over")
 	area.queue_free()
+	get_tree().change_scene_to_file("res://game_over_menu.tscn")
