@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b6pnse6exakcf"]
 
 [ext_resource type="Script" path="res://scanner.gd" id="1_6ugfv"]
-[ext_resource type="AudioStream" path="res://assets/sounds/lazer_sustain.mp3" id="2_83rry"]
+[ext_resource type="AudioStream" uid="uid://bxj8q60etu7i1" path="res://assets/sounds/lazer_sustain.mp3" id="2_83rry"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g425t"]
 

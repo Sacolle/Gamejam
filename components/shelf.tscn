@@ -1,0 +1,63 @@
+[gd_scene load_steps=13 format=3 uid="uid://yt3jm3iu8dyk"]
+
+[ext_resource type="Texture2D" uid="uid://c4j76de2rjx87" path="res://assets/tiles/estante_32_1.png" id="1_wb6k2"]
+[ext_resource type="Texture2D" uid="uid://dl6xgxfe7gpj8" path="res://assets/tiles/estante_32_2.png" id="2_3d8mt"]
+[ext_resource type="Texture2D" uid="uid://6tpb3qlualot" path="res://assets/tiles/estante_32_0.png" id="3_m07hr"]
+[ext_resource type="Texture2D" uid="uid://dgo2qxvla6bct" path="res://assets/tiles/estante_32_3.png" id="4_67myk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmfel"]
+albedo_texture = ExtResource("1_wb6k2")
+uv1_scale = Vector3(3, 2, 3)
+uv1_triplanar_sharpness = 3.13834
+uv2_scale = Vector3(0, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g2j8i"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_qmfel")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hb3v7"]
+albedo_texture = ExtResource("2_3d8mt")
+uv1_scale = Vector3(3, 2, 3)
+uv1_triplanar_sharpness = 3.13834
+uv2_scale = Vector3(0, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jjycr"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_hb3v7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36ta0"]
+albedo_texture = ExtResource("3_m07hr")
+uv1_scale = Vector3(3, 2, 3)
+uv1_triplanar_sharpness = 3.13834
+uv2_scale = Vector3(0, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gsqxc"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_36ta0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbxc4"]
+albedo_texture = ExtResource("4_67myk")
+uv1_scale = Vector3(3, 2, 3)
+uv1_triplanar_sharpness = 3.13834
+uv2_scale = Vector3(0, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_brjly"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_fbxc4")
+
+[node name="shelf" type="Node3D"]
+
+[node name="bottles" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("BoxMesh_g2j8i")
+
+[node name="energy" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("BoxMesh_jjycr")
+
+[node name="box" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_gsqxc")
+
+[node name="empty" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_brjly")

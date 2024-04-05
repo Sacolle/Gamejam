@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2ua7l3o104xc"]
+
+[ext_resource type="Script" path="res://components/item_script.gd" id="1_3xpyw"]
+[ext_resource type="PackedScene" uid="uid://ddv5b3y04rces" path="res://components/bar_code.tscn" id="2_yd7ng"]
+[ext_resource type="PackedScene" uid="uid://cxqtp2r1r8aq7" path="res://components/collision_detection.tscn" id="3_kdtq6"]
+[ext_resource type="PackedScene" uid="uid://0luxesgg6tq0" path="res://components/selected_cell.tscn" id="4_1ndla"]
+[ext_resource type="PackedScene" uid="uid://bjfk2cy7c3bho" path="res://assets/3d/2x1/SUCCI.gltf" id="4_fivux"]
+[ext_resource type="PackedScene" path="res://components/box_sfx.tscn" id="5_mkdhi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_reqyb"]
+size = Vector3(1.8, 1.36162, 0.693384)
+
+[node name="2b1_item" type="Area3D" groups=["itens"]]
+script = ExtResource("1_3xpyw")
+
+[node name="hitBox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.228827, -0.0219604)
+shape = SubResource("BoxShape3D_reqyb")
+
+[node name="barCode" parent="hitBox" instance=ExtResource("2_yd7ng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39578, -0.230811, -0.393863)
+
+[node name="collisionDetection" parent="hitBox" instance=ExtResource("3_kdtq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.228827, 0.0219604)
+
+[node name="CollisionRay" type="RayCast3D" parent="hitBox/collisionDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+target_position = Vector3(-1.85, 0, 0)
+collide_with_areas = true
+
+[node name="CollisionRay2" type="RayCast3D" parent="hitBox/collisionDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3425, 0, 0)
+target_position = Vector3(1.85, 0, 0)
+collide_with_areas = true
+
+[node name="mesh" parent="hitBox" instance=ExtResource("4_fivux")]
+transform = Transform3D(1.315, 0, 0, 0, 0.88, 0, 0, 0, 1.805, 0, -0.730811, 0.0219604)
+
+[node name="TimeScanned" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.055, 0.26)
+billboard = 1
+text = "0"
+
+[node name="SelectedCell" parent="." instance=ExtResource("4_1ndla")]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, -0.002, 0)
+skeleton = NodePath("../hitBox")
+
+[node name="BoxSfx" parent="." instance=ExtResource("5_mkdhi")]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

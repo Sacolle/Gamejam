@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdxm6ya30rnda"]
+
+[ext_resource type="Script" path="res://components/item_script.gd" id="1_j1oj5"]
+[ext_resource type="PackedScene" uid="uid://ddv5b3y04rces" path="res://components/bar_code.tscn" id="2_b5og1"]
+[ext_resource type="PackedScene" uid="uid://cxqtp2r1r8aq7" path="res://components/collision_detection.tscn" id="3_m5pje"]
+[ext_resource type="PackedScene" uid="uid://bibso2dwy4nbx" path="res://assets/3d/1x1/guarana.gltf" id="4_wd33v"]
+[ext_resource type="PackedScene" path="res://components/box_sfx.tscn" id="5_udryj"]
+[ext_resource type="PackedScene" uid="uid://0luxesgg6tq0" path="res://components/selected_cell.tscn" id="6_c880o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_reqyb"]
+size = Vector3(0.9, 0.974512, 0.9)
+
+[node name="1b1_item" type="Area3D" groups=["itens"]]
+script = ExtResource("1_j1oj5")
+
+[node name="hitBox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0372552, 0)
+shape = SubResource("BoxShape3D_reqyb")
+
+[node name="barCode" parent="hitBox" instance=ExtResource("2_b5og1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0392392, 0.5)
+
+[node name="collisionDetection" parent="hitBox" instance=ExtResource("3_m5pje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0372552, 0)
+
+[node name="CollisionRay" type="RayCast3D" parent="hitBox/collisionDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+target_position = Vector3(-1, 0, 0)
+collide_with_areas = true
+
+[node name="mesh" parent="hitBox" instance=ExtResource("4_wd33v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.520629, 0)
+
+[node name="BoxSfx" parent="." instance=ExtResource("5_udryj")]
+
+[node name="TimeScanned" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.055, 0.26)
+billboard = 1
+text = "0"
+
+[node name="SelectedCell" parent="." instance=ExtResource("6_c880o")]
+skeleton = NodePath("../hitBox")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
