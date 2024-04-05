@@ -58,7 +58,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("right"):
 		position.x += step
 
-	position.x = clamp(position.x, -1, 1)
+	position.x = clamp(position.x, -2, 1)
 	#if the lazer moved, let the items know that they are not getting hit
 	if old_pos != position.x:
 		get_tree().call_group("itens", "stopped_getting_hit")

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cxqtp2r1r8aq7" path="res://components/collision_detection.tscn" id="3_1dlpg"]
 [ext_resource type="Texture2D" uid="uid://y34pej5icsld" path="res://assets/debug/x.png" id="4_hiplo"]
 [ext_resource type="PackedScene" uid="uid://0luxesgg6tq0" path="res://components/selected_cell.tscn" id="4_vq2vo"]
-[ext_resource type="PackedScene" uid="uid://xgg4mnfsn70o" path="res://components/box_sfx.tscn" id="6_qpocc"]
+[ext_resource type="PackedScene" path="res://components/box_sfx.tscn" id="6_qpocc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_reqyb"]
 size = Vector3(1.8, 0.9, 1.8)

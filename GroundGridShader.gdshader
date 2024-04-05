@@ -9,7 +9,7 @@ vec2 grid(vec2 uv, float columns, float rows){
 }
 
 void fragment() {
-    vec2 grid = grid(UV, 3.0, 10.0);
+    vec2 grid = grid(UV, 4.0, 10.0);
 	float lineAA = fwidth(UV.x);
 	float lineWidth = 0.01;
 	float grid_x = smoothstep(lineWidth + lineAA, lineWidth - lineAA, grid.x);

@@ -67,7 +67,7 @@ func _on_item_scanned(amount):
 	$ItemCheckedSfx.play()
 
 	if live_items <= 0:
-    #TODO: Maybe give a bonus score if all items are clear?
+	#TODO: Maybe give a bonus score if all items are clear?
 		if finished_spawning:
 			level_ended.emit(score)
 

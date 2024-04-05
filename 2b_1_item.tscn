@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://components/item_script.gd" id="1_p1w7n"]
 [ext_resource type="PackedScene" uid="uid://ddv5b3y04rces" path="res://components/bar_code.tscn" id="2_egua6"]
-[ext_resource type="Texture2D" uid="uid://clcaacgd84uh7" path="res://assets/debug/x.png" id="2_jyia4"]
+[ext_resource type="Texture2D" uid="uid://y34pej5icsld" path="res://assets/debug/x.png" id="2_jyia4"]
 [ext_resource type="PackedScene" uid="uid://cxqtp2r1r8aq7" path="res://components/collision_detection.tscn" id="3_mks0y"]
 [ext_resource type="PackedScene" uid="uid://0luxesgg6tq0" path="res://components/selected_cell.tscn" id="4_wboma"]
-[ext_resource type="PackedScene" uid="uid://xgg4mnfsn70o" path="res://components/box_sfx.tscn" id="6_t2mdw"]
+[ext_resource type="PackedScene" path="res://components/box_sfx.tscn" id="6_vnlgh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_reqyb"]
 size = Vector3(1.8, 0.9, 0.9)
@@ -92,6 +92,6 @@ text = "0"
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, -0.002, 0)
 skeleton = NodePath("../hitBox")
 
-[node name="BoxSfx" parent="." instance=ExtResource("6_t2mdw")]
+[node name="BoxSfx" parent="." instance=ExtResource("6_vnlgh")]
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
