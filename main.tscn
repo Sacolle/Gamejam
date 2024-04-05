@@ -1,23 +1,40 @@
-[gd_scene load_steps=8 format=3 uid="uid://c510cmtigpytf"]
-
+[gd_scene load_steps=17 format=3 uid="uid://c510cmtigpytf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_xlcdy"]
 [ext_resource type="Resource" uid="uid://ct5qt3rpa80h8" path="res://Levels/debug_level.tres" id="2_ebq2t"]
 [ext_resource type="PackedScene" uid="uid://b6pnse6exakcf" path="res://scanner.tscn" id="2_ttui5"]
 [ext_resource type="Shader" path="res://GroundGridShader.gdshader" id="3_pt24n"]
-[ext_resource type="AudioStream" uid="uid://bmg4wvpbiyu5g" path="res://assets/sounds/beep.mp3" id="9_0snix"]
-[ext_resource type="AudioStream" uid="uid://b2x3boxwmlvsa" path="res://assets/sounds/esteirasfx.mp3" id="9_cephl"]
+[ext_resource type="Texture2D" uid="uid://07r0c7jrmu1x" path="res://assets/sprites/zaffinofinal_1.png" id="7_s6ako"]
+[ext_resource type="Texture2D" uid="uid://v0l4trjig8nm" path="res://assets/tiles/chao_32_1.png" id="8_l42cy"]
+[ext_resource type="AudioStream" path="res://assets/sounds/beep.mp3" id="9_0snix"]
+[ext_resource type="AudioStream" path="res://assets/sounds/esteirasfx.mp3" id="9_cephl"]
+[ext_resource type="Texture2D" uid="uid://6tpb3qlualot" path="res://assets/tiles/estante_32_0.png" id="9_vkxlq"]
 
 [sub_resource type="Environment" id="Environment_ftk5f"]
 glow_enabled = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_o2jq0"]
-size = Vector2(3, 10)
+size = Vector2(4, 10)
 orientation = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vhbrv"]
 render_priority = 0
 shader = ExtResource("3_pt24n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hu0p"]
+albedo_texture = ExtResource("8_l42cy")
+uv1_scale = Vector3(15, 15, 15)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l57dq"]
+size = Vector2(30, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kaswr"]
+albedo_texture = ExtResource("9_vkxlq")
+uv1_scale = Vector3(15, 15, 15)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4o7q3"]
+size = Vector2(30, 30)
+orientation = 0
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_xlcdy")
@@ -27,8 +44,9 @@ current_level = ExtResource("2_ebq2t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.79002)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.67559, -0.638501, 0.368639, 0, 0.5, 0.866025, -0.737277, -0.585078, 0.337795, 3.97061, 5.71465, 4.73546)
+transform = Transform3D(0.657375, -0.376782, 0.652605, 0, 0.866025, 0.5, -0.753563, -0.328688, 0.569304, 4.47029, 4.38397, 8.78691)
 environment = SubResource("Environment_ftk5f")
+fov = 60.0
 
 [node name="ScoreLabel" type="Label3D" parent="Camera3D"]
 transform = Transform3D(0.67559, 1.49012e-08, -0.737277, -0.638501, 0.5, -0.585078, 0.368639, 0.866025, 0.337795, -0.805, 0.915, -1.395)
@@ -36,7 +54,7 @@ billboard = 1
 text = "Score: "
 
 [node name="chao" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 2.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, 2.5)
 mesh = SubResource("QuadMesh_o2jq0")
 surface_material_override/0 = SubResource("ShaderMaterial_vhbrv")
 
@@ -67,6 +85,32 @@ volume_db = -6.169
 
 [node name="ItemCheckedSfx" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("9_0snix")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.60937, 0, 0.792886, 0, 1, 0, -0.792886, 0, 0.60937, -9.21302, -0.773827, -4.68951)
+pixel_size = 0.02
+billboard = 1
+texture = ExtResource("7_s6ako")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.60565, -5.28259, -0.735004)
+material_override = SubResource("StandardMaterial3D_1hu0p")
+mesh = SubResource("PlaneMesh_l57dq")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1501, -0.155541, -0.735004)
+material_override = SubResource("StandardMaterial3D_kaswr")
+mesh = SubResource("PlaneMesh_4o7q3")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.127082, -15.3119)
+material_override = SubResource("StandardMaterial3D_kaswr")
+mesh = SubResource("PlaneMesh_4o7q3")
+skeleton = NodePath("../..")
 
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="stepTimer" to="." method="_on_step_timer_timeout"]
