@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1ighttmh0k38"]
+[gd_scene load_steps=8 format=3 uid="uid://c1ighttmh0k38"]
 
 [ext_resource type="Script" path="res://game_over_menu.gd" id="1_gcg20"]
 [ext_resource type="Texture2D" uid="uid://lriuoepufebt" path="res://assets/bg.png" id="2_ma2kf"]
 [ext_resource type="Texture2D" uid="uid://xkmptngw6vjw" path="res://assets/pc/ded_1.png" id="3_ahnio"]
-[ext_resource type="Theme" uid="uid://e3wa1604kqud" path="res://ui_theme.tres" id="4_04kep"]
+[ext_resource type="Texture2D" uid="uid://pogijb6pfm5x" path="res://assets/hud/botao.png" id="5_7bqti"]
+[ext_resource type="Texture2D" uid="uid://ch534jm7m40tb" path="res://assets/hud/botaopress.png" id="6_nwh6y"]
+[ext_resource type="Theme" uid="uid://1356byqvsec1" path="res://ui_theme_final.tres" id="7_5tumm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8ioq"]
 
@@ -75,18 +77,47 @@ theme_override_constants/separation = 23
 theme_override_styles/separator = SubResource("StyleBoxEmpty_h8ioq")
 metadata/_edit_lock_ = true
 
-[node name="CarregarBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+[node name="ReiniciarBtn" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("4_04kep")
-text = "Carregar"
+texture_normal = ExtResource("5_7bqti")
+texture_pressed = ExtResource("6_nwh6y")
+texture_hover = ExtResource("6_nwh6y")
 metadata/_edit_lock_ = true
 
-[node name="SairBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/ReiniciarBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("7_5tumm")
+text = "Reiniciar"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="SairBtn" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("4_04kep")
-theme_type_variation = &"FlatButton"
+texture_normal = ExtResource("5_7bqti")
+texture_pressed = ExtResource("6_nwh6y")
+texture_hover = ExtResource("6_nwh6y")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/SairBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("7_5tumm")
 text = "Sair"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/CarregarBtn" to="." method="_on_carregar_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/ReiniciarBtn" to="." method="_on_reiniciar_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/SairBtn" to="." method="_on_sair_btn_pressed"]

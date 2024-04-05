@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhmcv3oumcmvo"]
+[gd_scene load_steps=4 format=3 uid="uid://cj8idhh5kkbx8"]
 
 [ext_resource type="Script" path="res://ProgressBar.gd" id="1_3cpuc"]
-[ext_resource type="Texture2D" uid="uid://mnsckkerkib2" path="res://icon.svg" id="1_yn6kt"]
+[ext_resource type="Texture2D" uid="uid://d23nwnhfasioj" path="res://assets/tiles/spinprogress.png" id="2_p3oji"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0ci0n"]
 viewport_path = NodePath("SubViewport")
@@ -23,4 +23,4 @@ scale = Vector2(4, 4)
 offset_right = 40.0
 offset_bottom = 40.0
 fill_mode = 4
-texture_progress = ExtResource("1_yn6kt")
+texture_progress = ExtResource("2_p3oji")
