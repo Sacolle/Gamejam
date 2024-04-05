@@ -4,7 +4,7 @@ extends Area3D
 var step = 1
 
 @export
-var laser_base_scale = 10
+var laser_base_scale = 5.5
 
 @onready
 var ray = $RayCast3D
@@ -38,8 +38,9 @@ func _process(_delta):
 			laser.position.z = -(position.z - pos.z)/2
 			#colidiu com o codigo de barra, se não o item n está sendo acertado
 			if c.collision_layer == 2:
+				#print(c)
 				c.hit()
-			else:
+			elif c.collision_layer == 1:
 				c.set_hit(false)
 		else:
 			laser.scale.z  = laser_base_scale

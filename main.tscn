@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c510cmtigpytf"]
+[gd_scene load_steps=25 format=3 uid="uid://c510cmtigpytf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_xlcdy"]
 [ext_resource type="Resource" uid="uid://ct5qt3rpa80h8" path="res://Levels/debug_level.tres" id="2_ebq2t"]
@@ -6,9 +6,11 @@
 [ext_resource type="Shader" path="res://GroundGridShader.gdshader" id="3_pt24n"]
 [ext_resource type="Texture2D" uid="uid://07r0c7jrmu1x" path="res://assets/sprites/zaffinofinal_1.png" id="7_s6ako"]
 [ext_resource type="Texture2D" uid="uid://v0l4trjig8nm" path="res://assets/tiles/chao_32_1.png" id="8_l42cy"]
-[ext_resource type="AudioStream" path="res://assets/sounds/beep.mp3" id="9_0snix"]
-[ext_resource type="AudioStream" path="res://assets/sounds/esteirasfx.mp3" id="9_cephl"]
-[ext_resource type="Texture2D" uid="uid://6tpb3qlualot" path="res://assets/tiles/estante_32_0.png" id="9_vkxlq"]
+[ext_resource type="AudioStream" uid="uid://bmg4wvpbiyu5g" path="res://assets/sounds/beep.mp3" id="9_0snix"]
+[ext_resource type="AudioStream" uid="uid://b2x3boxwmlvsa" path="res://assets/sounds/esteirasfx.mp3" id="9_cephl"]
+[ext_resource type="Texture2D" uid="uid://b1pkkxqjc8iyf" path="res://assets/tiles/chao_32_0.png" id="9_ikj5f"]
+[ext_resource type="PackedScene" uid="uid://br02r0ascyk5b" path="res://shelf_generator.tscn" id="10_jgv0c"]
+[ext_resource type="PackedScene" uid="uid://bfjwx2lx85s42" path="res://assets/3d/cart.gltf" id="11_oxva2"]
 
 [sub_resource type="Environment" id="Environment_ftk5f"]
 glow_enabled = true
@@ -23,18 +25,33 @@ shader = ExtResource("3_pt24n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hu0p"]
 albedo_texture = ExtResource("8_l42cy")
-uv1_scale = Vector3(15, 15, 15)
+uv1_scale = Vector3(30, 30, 15)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_l57dq"]
-size = Vector2(30, 30)
+size = Vector2(90, 90)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kaswr"]
-albedo_texture = ExtResource("9_vkxlq")
-uv1_scale = Vector3(15, 15, 15)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7vx1"]
+albedo_texture = ExtResource("9_ikj5f")
+uv1_scale = Vector3(80, 30, 15)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_4o7q3"]
-size = Vector2(30, 30)
+[sub_resource type="PlaneMesh" id="PlaneMesh_m8smu"]
+size = Vector2(80, 30)
 orientation = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_bo3em"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t0saq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c4eq3"]
+size = Vector3(0.293365, 1.08887, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mnnln"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ekqm"]
+size = Vector3(1, 1.23132, 0.123901)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mvotb"]
+size = Vector3(4.12103, 1, 0.4729)
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_xlcdy")
@@ -44,12 +61,12 @@ current_level = ExtResource("2_ebq2t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.79002)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.657375, -0.376782, 0.652605, 0, 0.866025, 0.5, -0.753563, -0.328688, 0.569304, 4.47029, 4.38397, 8.78691)
+transform = Transform3D(0.657375, -0.376782, 0.652605, 0, 0.866025, 0.500001, -0.753563, -0.328688, 0.569304, 5.44168, 5.2001, 9.93254)
 environment = SubResource("Environment_ftk5f")
 fov = 60.0
 
 [node name="ScoreLabel" type="Label3D" parent="Camera3D"]
-transform = Transform3D(0.67559, 1.49012e-08, -0.737277, -0.638501, 0.5, -0.585078, 0.368639, 0.866025, 0.337795, -0.805, 0.915, -1.395)
+transform = Transform3D(0.67559, 1.49012e-08, -0.737277, -0.638501, 0.5, -0.585078, 0.368639, 0.866025, 0.337796, -1.06073, 0.819743, -1.56719)
 billboard = 1
 text = "Score: "
 
@@ -70,47 +87,115 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 
-[node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45861, 0.498016, -0.371917)
-
-[node name="Label3D" type="Label3D" parent="."]
-billboard = 1
-no_depth_test = true
-text = "ORIGIN
-"
-
 [node name="BeltStepSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_cephl")
 volume_db = -6.169
 
 [node name="ItemCheckedSfx" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("9_0snix")
+volume_db = -12.395
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="EnemySprite" type="Sprite3D" parent="."]
 transform = Transform3D(0.60937, 0, 0.792886, 0, 1, 0, -0.792886, 0, 0.60937, -9.21302, -0.773827, -4.68951)
 pixel_size = 0.02
 billboard = 1
 texture = ExtResource("7_s6ako")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="bg_meshes" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.60565, -5.28259, -0.735004)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bg_meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.7174, -5.01817, -27.894)
 material_override = SubResource("StandardMaterial3D_1hu0p")
 mesh = SubResource("PlaneMesh_l57dq")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1501, -0.155541, -0.735004)
-material_override = SubResource("StandardMaterial3D_kaswr")
-mesh = SubResource("PlaneMesh_4o7q3")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="bg_meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.1175, -0.155541, -21.9725)
+material_override = SubResource("StandardMaterial3D_f7vx1")
+mesh = SubResource("PlaneMesh_m8smu")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.127082, -15.3119)
-material_override = SubResource("StandardMaterial3D_kaswr")
-mesh = SubResource("PlaneMesh_4o7q3")
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="bg_meshes"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.9813, -0.155541, -61.426)
+material_override = SubResource("StandardMaterial3D_f7vx1")
+mesh = SubResource("PlaneMesh_m8smu")
 skeleton = NodePath("../..")
+
+[node name="caixa_model" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4.6957, 0, 0, 0, 10, -0.5, -2.9052, 2.5)
+mesh = SubResource("BoxMesh_bo3em")
+skeleton = NodePath("")
+
+[node name="cerca" type="Area3D" parent="caixa_model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528515, 0.160902, 0)
+input_ray_pickable = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="caixa_model/cerca"]
+transform = Transform3D(0.067, 0, 0, 0, 1.049, 0, 0, 0, 1, -0.00568771, -0.0622058, 0)
+mesh = SubResource("BoxMesh_t0saq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="caixa_model/cerca"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.138458, 0.0444336, 0)
+shape = SubResource("BoxShape3D_c4eq3")
+
+[node name="cerca2" type="Area3D" parent="caixa_model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.797595, 0.160902, 0)
+input_ray_pickable = false
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="caixa_model/cerca2"]
+transform = Transform3D(0.067, 0, 0, 0, 1.049, 0, 0, 0, 1, -0.259801, -0.0622058, 0)
+mesh = SubResource("BoxMesh_t0saq")
+skeleton = NodePath("../../cerca")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="caixa_model/cerca2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125565, 0.0444336, 0)
+shape = SubResource("BoxShape3D_c4eq3")
+
+[node name="round_base1" type="MeshInstance3D" parent="caixa_model"]
+transform = Transform3D(0.992461, 0, 0, 0, 0.496576, 0, 0, 0, 0.123509, 0.00297409, 0.00339454, 0.501591)
+mesh = SubResource("CylinderMesh_mnnln")
+skeleton = NodePath("../..")
+
+[node name="cerca_atras" type="Area3D" parent="caixa_model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.468321)
+input_ray_pickable = false
+
+[node name="round_base2" type="MeshInstance3D" parent="caixa_model/cerca_atras"]
+transform = Transform3D(0.992461, 0, 0, 0, 0.496576, 0, 0, 0, 0.219364, 0, 0, -0.0199902)
+mesh = SubResource("CylinderMesh_mnnln")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="caixa_model/cerca_atras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115662, -0.103943)
+shape = SubResource("BoxShape3D_2ekqm")
+
+[node name="KillBox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.88875)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.490326, 0, -0.120483)
+shape = SubResource("BoxShape3D_mvotb")
+
+[node name="ShelfGenerator" parent="." instance=ExtResource("10_jgv0c")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 3.94017, -4.2043, -11.5056)
+amount = 20
+
+[node name="ShelfGenerator2" parent="." instance=ExtResource("10_jgv0c")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -4.08531, -4.2043, -11.4146)
+amount = 20
+
+[node name="ShelfGenerator3" parent="." instance=ExtResource("10_jgv0c")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -14.301, -4.2043, 0.827394)
+amount = 20
+
+[node name="ShelfGenerator4" parent="." instance=ExtResource("10_jgv0c")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -22.542, -4.2043, 9.44092)
+amount = 20
+
+[node name="carrinho_de_compras" parent="." instance=ExtResource("11_oxva2")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5, -2.22428, 4.14476)
 
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="stepTimer" to="." method="_on_step_timer_timeout"]
+[connection signal="area_entered" from="KillBox" to="." method="_on_kill_box_area_entered"]

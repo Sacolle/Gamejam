@@ -2,16 +2,29 @@ extends Node3D
 @export
 var current_level: Level = null;
 
-var item_scene = preload("res://item.tscn")
-
 var spawn = true
 var step = true
 
 var score = 0
 
 var items = {
-	"1b1": preload("res://1b_1_item.tscn"),
-	"2b1": preload("res://2b_1_item.tscn")
+	#1b1
+	"coca": preload("res://itens/coca.tscn"),
+	"guarana": preload("res://itens/guarana.tscn"),
+	"monster": preload("res://itens/monster.tscn"),
+	#2b1
+	"succ": preload("res://itens/succ.tscn"),
+	#2b2
+	"milk": preload("res://itens/milk.tscn"),
+	"beans": preload("res://itens/beans.tscn"),
+	#3b1
+	"aipo": preload("res://itens/aipo.tscn")
+}
+
+var inimigos = {
+	"cat": preload("res://assets/sprites/meowafinal_1.png"),
+	"dog": preload("res://assets/sprites/doggyfinal.png"),
+	"zaf": preload("res://assets/sprites/zaffinofinal_1.png")
 }
 
 var time = 0
@@ -23,9 +36,9 @@ signal level_ended(score: int)
 
 signal defeat(score: int)
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$EnemySprite.texture = inimigos[current_level.enemy]
 	$spawnTimer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -85,3 +98,9 @@ func _on_spawn_timer_timeout():
 
 func _on_step_timer_timeout():
 	step = true
+
+
+func _on_kill_box_area_entered(area):
+	#TODO: the game over
+	print("game over")
+	area.queue_free()
