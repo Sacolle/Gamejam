@@ -7,11 +7,13 @@ signal item_scanned(value)
 @export var time_to_scan = 2
 @export var item_value = 1
 
-var hit_box: CollisionShape3D
-var collision_detector: CollisionDetector
+@onready var hit_box = $hitBox
+@onready var collision_detector = $hitBox/collisionDetection
 #TODO: add the correct label scene
 #@export var label
-var barcode: Barcode
+@onready var barcode = $hitBox/barCode
+@onready var selected_cell = $SelectedCell
+@onready var sfx = $BoxSfx
 
 #private variables
 var time: float = 0
@@ -19,9 +21,6 @@ var is_hit = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	barcode = $hitBox/barCode
-	collision_detector = $hitBox/collisionDetection
-	hit_box = $hitBox
 	#conecta ao sinal de colisão do barcode
 	barcode.barcode_hit.connect(hit)
 
@@ -45,8 +44,13 @@ func set_hit(h: bool):
 #	- no set_item_center, no calculo do offset para o eixo z
 
 func set_item_center(cell: Vector2i) -> bool:
+	
+	#set the highlight
+	selected_cell.show_selected_cell()
+	
 	if cell.x == position.x and cell.y == position.z: 
 		return false
+	
 	
 	#print("old hit box pos: ", hit_box.position)
 	var old_pos = Vector2(position.x, position.z)
@@ -113,3 +117,6 @@ func _on_input_event(_camera, event, pos, _normal, _shape_idx):
 		rotation.y += dir * (PI/2)
 		if collision_detector.is_colliding():
 			rotation = old_rotation
+		else:
+			#did rotate
+			sfx.play()

@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://0luxesgg6tq0"]
+
+[ext_resource type="Script" path="res://components/selected_cell.gd" id="1_apb0c"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ljcfi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xng0c"]
+transparency = 1
+diffuse_mode = 3
+albedo_color = Color(1, 0.290196, 0, 0.254902)
+
+[sub_resource type="Animation" id="Animation_tn6el"]
+resource_name = "show"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:surface_material_override/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.870551, 1),
+"update": 0,
+"values": [Color(1, 0.290196, 0, 0.176471), Color(1, 0.290196, 0, 0.305882)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.05, 1.05, 1.05), Vector3(1.2, 1.2, 1.2)]
+}
+
+[sub_resource type="Animation" id="Animation_wrd7s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:surface_material_override/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.290196, 0, 0.254902)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.05, 1.05, 1.05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x4tei"]
+_data = {
+"RESET": SubResource("Animation_wrd7s"),
+"show": SubResource("Animation_tn6el")
+}
+
+[node name="SelectedCell" type="MeshInstance3D" groups=["highlight_cell"]]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)
+layers = 512
+mesh = SubResource("BoxMesh_ljcfi")
+surface_material_override/0 = SubResource("StandardMaterial3D_xng0c")
+script = ExtResource("1_apb0c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x4tei")
+}
+autoplay = "show"

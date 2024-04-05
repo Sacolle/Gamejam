@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="Level" load_steps=10 format=3 uid="uid://ct5qt3rpa80h8"]
+
+[ext_resource type="Script" path="res://Scripts/levelResource.gd" id="1_liwmm"]
+[ext_resource type="Script" path="res://Scripts/SpawnItemRes.gd" id="2_pbgbf"]
+
+[sub_resource type="Resource" id="Resource_j88yg"]
+script = ExtResource("2_pbgbf")
+id = "coca"
+position = Vector2i(0, -3)
+orientation = 1
+time_to_scan = 1.0
+points = 1
+
+[sub_resource type="Resource" id="Resource_vqxco"]
+script = ExtResource("2_pbgbf")
+id = "guarana"
+position = Vector2i(0, -3)
+orientation = 1
+time_to_scan = 1.0
+points = 1
+
+[sub_resource type="Resource" id="Resource_jomrd"]
+script = ExtResource("2_pbgbf")
+id = "monster"
+position = Vector2i(0, -3)
+orientation = 0
+time_to_scan = 1.0
+points = 1
+
+[sub_resource type="Resource" id="Resource_3nlui"]
+script = ExtResource("2_pbgbf")
+id = "succ"
+position = Vector2i(0, -3)
+orientation = 2
+time_to_scan = 1.0
+points = 1
+
+[sub_resource type="Resource" id="Resource_tpibe"]
+script = ExtResource("2_pbgbf")
+id = "milk"
+position = Vector2i(0, -3)
+orientation = 2
+time_to_scan = 1.0
+points = 1
+
+[sub_resource type="Resource" id="Resource_hi33r"]
+script = ExtResource("2_pbgbf")
+id = "beans"
+position = Vector2i(0, -3)
+orientation = 2
+time_to_scan = 1.0
+points = 1
+
+[sub_resource type="Resource" id="Resource_skrj1"]
+script = ExtResource("2_pbgbf")
+id = "aipo"
+position = Vector2i(0, -3)
+orientation = 2
+time_to_scan = 1.0
+points = 1
+
+[resource]
+script = ExtResource("1_liwmm")
+id = 0
+title = ""
+enemy = "cat"
+spawns = Array[ExtResource("2_pbgbf")]([SubResource("Resource_j88yg"), SubResource("Resource_vqxco"), SubResource("Resource_jomrd"), SubResource("Resource_3nlui"), null, SubResource("Resource_tpibe"), null, SubResource("Resource_hi33r"), null, SubResource("Resource_skrj1")])

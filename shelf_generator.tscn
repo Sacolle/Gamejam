@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://br02r0ascyk5b"]
+
+[ext_resource type="Script" path="res://shelf_generator.gd" id="1_u3fkt"]
+
+[node name="ShelfGenerator" type="Node3D"]
+script = ExtResource("1_u3fkt")
