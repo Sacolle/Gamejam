@@ -1,0 +1,284 @@
+[gd_resource type="Resource" script_class="Level" load_steps=42 format=3 uid="uid://chp6eev23omeg"]
+
+[ext_resource type="Script" path="res://Scripts/levelResource.gd" id="1_wmxee"]
+[ext_resource type="Script" path="res://Scripts/SpawnItemRes.gd" id="2_d6s0i"]
+
+[sub_resource type="Resource" id="Resource_3e3gg"]
+script = ExtResource("2_d6s0i")
+id = "coca"
+position = Vector2i(0, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_cfhsk"]
+script = ExtResource("2_d6s0i")
+id = "aipo"
+position = Vector2i(0, -3)
+orientation = 0
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_is7qj"]
+script = ExtResource("2_d6s0i")
+id = "aipo"
+position = Vector2i(1, -3)
+orientation = 0
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_du2pj"]
+script = ExtResource("2_d6s0i")
+id = "aipo"
+position = Vector2i(-2, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_ycdns"]
+script = ExtResource("2_d6s0i")
+id = "guarana"
+position = Vector2i(0, -3)
+orientation = 2
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_a8iap"]
+script = ExtResource("2_d6s0i")
+id = "milk"
+position = Vector2i(-2, -3)
+orientation = 3
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_wns2m"]
+script = ExtResource("2_d6s0i")
+id = "coca"
+position = Vector2i(0, -3)
+orientation = 0
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_iephi"]
+script = ExtResource("2_d6s0i")
+id = "succ"
+position = Vector2i(1, -3)
+orientation = 1
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_nf0ry"]
+script = ExtResource("2_d6s0i")
+id = "coca"
+position = Vector2i(-2, -3)
+orientation = 0
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_abrx3"]
+script = ExtResource("2_d6s0i")
+id = "coca"
+position = Vector2i(-1, -3)
+orientation = 1
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_bl1xu"]
+script = ExtResource("2_d6s0i")
+id = "coca"
+position = Vector2i(0, -3)
+orientation = 2
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_fk4x2"]
+script = ExtResource("2_d6s0i")
+id = "coca"
+position = Vector2i(1, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_k7iox"]
+script = ExtResource("2_d6s0i")
+id = "guarana"
+position = Vector2i(-2, -3)
+orientation = 1
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_3el7f"]
+script = ExtResource("2_d6s0i")
+id = "beans"
+position = Vector2i(0, -3)
+orientation = 1
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_mij6a"]
+script = ExtResource("2_d6s0i")
+id = "monster"
+position = Vector2i(1, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_axkoy"]
+script = ExtResource("2_d6s0i")
+id = "coca"
+position = Vector2i(-1, -3)
+orientation = 2
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_rqkw7"]
+script = ExtResource("2_d6s0i")
+id = "aipo"
+position = Vector2i(1, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_iy118"]
+script = ExtResource("2_d6s0i")
+id = "aipo"
+position = Vector2i(-2, -3)
+orientation = 2
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_oqt1n"]
+script = ExtResource("2_d6s0i")
+id = "coca"
+position = Vector2i(-1, -3)
+orientation = 2
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_4gg4v"]
+script = ExtResource("2_d6s0i")
+id = "coca"
+position = Vector2i(1, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_8d04e"]
+script = ExtResource("2_d6s0i")
+id = "milk"
+position = Vector2i(0, -3)
+orientation = 1
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_hd50f"]
+script = ExtResource("2_d6s0i")
+id = "guarana"
+position = Vector2i(1, -3)
+orientation = 1
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_l1pfm"]
+script = ExtResource("2_d6s0i")
+id = "succ"
+position = Vector2i(-2, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_r8ni3"]
+script = ExtResource("2_d6s0i")
+id = "coca"
+position = Vector2i(-1, -3)
+orientation = 2
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_8apba"]
+script = ExtResource("2_d6s0i")
+id = "succ"
+position = Vector2i(1, -3)
+orientation = 0
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_vu83p"]
+script = ExtResource("2_d6s0i")
+id = "succ"
+position = Vector2i(-2, -3)
+orientation = 3
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_6c572"]
+script = ExtResource("2_d6s0i")
+id = "beans"
+position = Vector2i(1, -3)
+orientation = 0
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_38ofu"]
+script = ExtResource("2_d6s0i")
+id = "guarana"
+position = Vector2i(-1, -3)
+orientation = 2
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_nbus6"]
+script = ExtResource("2_d6s0i")
+id = "guarana"
+position = Vector2i(0, -3)
+orientation = 0
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_m388y"]
+script = ExtResource("2_d6s0i")
+id = "aipo"
+position = Vector2i(-1, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_gd3j1"]
+script = ExtResource("2_d6s0i")
+id = "succ"
+position = Vector2i(1, -3)
+orientation = 0
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_0jxls"]
+script = ExtResource("2_d6s0i")
+id = "coca"
+position = Vector2i(-2, -3)
+orientation = 2
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_65r2q"]
+script = ExtResource("2_d6s0i")
+id = "coca"
+position = Vector2i(-1, -3)
+orientation = 1
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_mgrw2"]
+script = ExtResource("2_d6s0i")
+id = "coca"
+position = Vector2i(0, -3)
+orientation = 2
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_rcsp6"]
+script = ExtResource("2_d6s0i")
+id = "coca"
+position = Vector2i(1, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_cuk14"]
+script = ExtResource("2_d6s0i")
+id = "aipo"
+position = Vector2i(0, -3)
+orientation = 0
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_pus3q"]
+script = ExtResource("2_d6s0i")
+id = "aipo"
+position = Vector2i(0, -3)
+orientation = 0
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_7bywv"]
+script = ExtResource("2_d6s0i")
+id = "aipo"
+position = Vector2i(0, -3)
+orientation = 0
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_lo4ay"]
+script = ExtResource("2_d6s0i")
+id = "coca"
+position = Vector2i(1, -3)
+orientation = 2
+immediate_next = false
+
+[resource]
+script = ExtResource("1_wmxee")
+id = 2
+title = "zaffino"
+enemy = "zaf"
+spawns = Array[ExtResource("2_d6s0i")]([null, null, SubResource("Resource_3e3gg"), null, null, SubResource("Resource_cfhsk"), SubResource("Resource_is7qj"), SubResource("Resource_du2pj"), null, SubResource("Resource_ycdns"), SubResource("Resource_a8iap"), SubResource("Resource_wns2m"), SubResource("Resource_iephi"), SubResource("Resource_nf0ry"), SubResource("Resource_abrx3"), SubResource("Resource_bl1xu"), SubResource("Resource_fk4x2"), SubResource("Resource_k7iox"), SubResource("Resource_3el7f"), SubResource("Resource_mij6a"), SubResource("Resource_axkoy"), SubResource("Resource_rqkw7"), null, SubResource("Resource_iy118"), SubResource("Resource_oqt1n"), SubResource("Resource_4gg4v"), null, SubResource("Resource_8d04e"), SubResource("Resource_hd50f"), SubResource("Resource_l1pfm"), SubResource("Resource_r8ni3"), SubResource("Resource_8apba"), SubResource("Resource_vu83p"), SubResource("Resource_6c572"), SubResource("Resource_38ofu"), SubResource("Resource_nbus6"), SubResource("Resource_m388y"), SubResource("Resource_gd3j1"), SubResource("Resource_0jxls"), SubResource("Resource_65r2q"), SubResource("Resource_mgrw2"), SubResource("Resource_rcsp6"), null, SubResource("Resource_cuk14"), SubResource("Resource_pus3q"), SubResource("Resource_7bywv"), SubResource("Resource_lo4ay"), null, null, null, null])

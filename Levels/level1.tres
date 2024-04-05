@@ -1,18 +1,167 @@
-[gd_resource type="Resource" script_class="Level" load_steps=4 format=3 uid="uid://bddn7ney53vo"]
+[gd_resource type="Resource" script_class="Level" load_steps=26 format=3 uid="uid://x3f0rhqp3rfe"]
 
+[ext_resource type="Resource" uid="uid://chp6eev23omeg" path="res://Levels/level2.tres" id="1_chf2n"]
 [ext_resource type="Script" path="res://Scripts/levelResource.gd" id="1_ko4bw"]
 [ext_resource type="Script" path="res://Scripts/SpawnItemRes.gd" id="2_uq3x8"]
 
-[sub_resource type="Resource" id="Resource_px1ss"]
+[sub_resource type="Resource" id="Resource_2t5sd"]
+script = ExtResource("2_uq3x8")
+id = "aipo"
+position = Vector2i(0, -3)
+orientation = 0
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_lmc77"]
+script = ExtResource("2_uq3x8")
+id = "aipo"
+position = Vector2i(-2, -3)
+orientation = 3
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_lpxr1"]
+script = ExtResource("2_uq3x8")
+id = "succ"
+position = Vector2i(1, -3)
+orientation = 0
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_u8vf6"]
+script = ExtResource("2_uq3x8")
+id = "succ"
+position = Vector2i(0, -3)
+orientation = 0
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_pccb5"]
+script = ExtResource("2_uq3x8")
+id = "succ"
+position = Vector2i(1, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_2y0ct"]
+script = ExtResource("2_uq3x8")
+id = "coca"
+position = Vector2i(-1, -3)
+orientation = 1
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_w5vx6"]
+script = ExtResource("2_uq3x8")
+id = "beans"
+position = Vector2i(-1, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_7qgrg"]
+script = ExtResource("2_uq3x8")
+id = "beans"
+position = Vector2i(1, -3)
+orientation = 0
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_proxx"]
+script = ExtResource("2_uq3x8")
+id = "beans"
+position = Vector2i(-2, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_c5b7d"]
 script = ExtResource("2_uq3x8")
 id = "monster"
+position = Vector2i(-2, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_omdlo"]
+script = ExtResource("2_uq3x8")
+id = "succ"
+position = Vector2i(0, -3)
+orientation = 1
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_y11wu"]
+script = ExtResource("2_uq3x8")
+id = "guarana"
+position = Vector2i(-1, -3)
+orientation = 1
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_bxw2u"]
+script = ExtResource("2_uq3x8")
+id = "aipo"
+position = Vector2i(-2, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_puax5"]
+script = ExtResource("2_uq3x8")
+id = "beans"
+position = Vector2i(0, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_o1dyf"]
+script = ExtResource("2_uq3x8")
+id = "coca"
+position = Vector2i(-1, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_t3s6y"]
+script = ExtResource("2_uq3x8")
+id = "coca"
 position = Vector2i(0, -3)
 orientation = 2
-time_to_scan = 1.0
-points = 1
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_dwmdy"]
+script = ExtResource("2_uq3x8")
+id = "beans"
+position = Vector2i(-1, -3)
+orientation = 2
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_5ebbw"]
+script = ExtResource("2_uq3x8")
+id = "succ"
+position = Vector2i(-2, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_vdlbc"]
+script = ExtResource("2_uq3x8")
+id = "beans"
+position = Vector2i(0, -3)
+orientation = 0
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_5dmox"]
+script = ExtResource("2_uq3x8")
+id = "guarana"
+position = Vector2i(-1, -3)
+orientation = 1
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_6ylf3"]
+script = ExtResource("2_uq3x8")
+id = "guarana"
+position = Vector2i(1, -3)
+orientation = 2
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_r3ae1"]
+script = ExtResource("2_uq3x8")
+id = "beans"
+position = Vector2i(-1, -3)
+orientation = 2
+immediate_next = false
 
 [resource]
 script = ExtResource("1_ko4bw")
-id = 3
-title = "Zafino"
-spawns = Array[ExtResource("2_uq3x8")]([SubResource("Resource_px1ss"), null, null])
+id = 1
+title = "Doggy"
+enemy = "dog"
+spawns = Array[ExtResource("2_uq3x8")]([null, SubResource("Resource_2t5sd"), null, null, SubResource("Resource_lmc77"), SubResource("Resource_lpxr1"), SubResource("Resource_u8vf6"), SubResource("Resource_pccb5"), SubResource("Resource_2y0ct"), SubResource("Resource_w5vx6"), null, SubResource("Resource_7qgrg"), SubResource("Resource_proxx"), null, SubResource("Resource_c5b7d"), SubResource("Resource_omdlo"), SubResource("Resource_y11wu"), SubResource("Resource_bxw2u"), SubResource("Resource_puax5"), SubResource("Resource_o1dyf"), SubResource("Resource_t3s6y"), null, SubResource("Resource_dwmdy"), SubResource("Resource_5ebbw"), SubResource("Resource_vdlbc"), SubResource("Resource_5dmox"), SubResource("Resource_6ylf3"), null, null, null, SubResource("Resource_r3ae1"), null, null])
+next_level = ExtResource("1_chf2n")

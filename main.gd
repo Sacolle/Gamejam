@@ -21,6 +21,33 @@ var items = {
 	"aipo": preload("res://itens/aipo.tscn")
 }
 
+var time_to_scan_table = {
+	"coca": 1,
+	"guarana": 1,
+	"monster": 1,
+	#2b1
+	"succ": 1.5,
+	#2b2
+	"milk": 2,
+	"beans": 2,
+	#3b1
+	"aipo": 3
+}
+
+var points_table = {
+	"coca": 1,
+	"guarana": 1,
+	"monster": 1.5,
+	#2b1
+	"succ": 2,
+	#2b2
+	"milk": 3,
+	"beans": 3,
+	#3b1
+	"aipo": 5
+}
+
+
 var inimigos = {
 	"cat": preload("res://assets/sprites/meowafinal_1.png"),
 	"dog": preload("res://assets/sprites/doggyfinal.png"),
@@ -51,25 +78,30 @@ func spawn_enemies():
 	if spawn:
 		spawn = false
 		$spawnTimer.start()
-		if current_level.spawns.size() > time:
-			var will_spawn = current_level.spawns[time]
-			if will_spawn:
-				var item : BaseItem = items[will_spawn.id].instantiate()
-				get_tree().root.add_child(item)
-				item.start(Vector3(will_spawn.position.x,0, will_spawn.position.y), will_spawn.time_to_scan, will_spawn.points)
-				item.rotation.y += will_spawn.orientation * (PI/2)
-				item.item_scanned.connect(_on_item_scanned)
-				live_items += 1
-			time += 1;
-			if current_level.spawns.size() <= time:
-				finished_spawning = true
-#			TODO: check here if all items have been scanned and passed to the next level
+		instantiate_enemy()
+
+func instantiate_enemy():
+	if current_level.spawns.size() > time:
+		var will_spawn = current_level.spawns[time]
+		if not will_spawn:
+			time += 1
+			return 
 		
-		
-		#var item = item_scene.instantiate()
-		#get_tree().root.add_child(item)
-		#item.start(Vector3(randi_range(-1, 1), 0, 0))
-		#item.item_scanned.connect(_on_item_scanned)
+		var item : BaseItem = items[will_spawn.id].instantiate()
+		get_tree().root.add_child(item)
+		item.start(
+			Vector3(will_spawn.position.x, 0, will_spawn.position.y), 
+			time_to_scan_table[will_spawn.id], 
+			points_table[will_spawn.id]
+		)
+		item.rotation.y += will_spawn.orientation * (PI/2)
+		item.item_scanned.connect(_on_item_scanned)
+		live_items += 1
+		time += 1;
+		if will_spawn.immediate_next:
+			instantiate_enemy()
+	else:
+		finished_spawning = true
 
 func _on_item_scanned(amount):
 	live_items -= 1
