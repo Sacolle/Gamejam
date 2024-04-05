@@ -1,0 +1,129 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0bf84ss52sfk"]
+
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_yixaj"]
+[ext_resource type="Texture2D" uid="uid://lriuoepufebt" path="res://assets/bg.png" id="2_7loog"]
+[ext_resource type="Texture2D" uid="uid://dp557lti83w5p" path="res://assets/pc/bonitrevas.png" id="3_habyb"]
+[ext_resource type="Theme" uid="uid://e3wa1604kqud" path="res://ui_theme.tres" id="5_uu8s0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8ioq"]
+
+[node name="PauseMenuControl" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yixaj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.466667)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7loog")
+metadata/_edit_lock_ = true
+
+[node name="boni_menu" type="TextureRect" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84
+anchor_top = 0.179
+anchor_right = 0.994
+anchor_bottom = 1.0
+offset_left = -214.68
+offset_top = -121.992
+offset_right = 68.3199
+offset_bottom = 476.168
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.685, 0.685)
+texture = ExtResource("3_habyb")
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -323.84
+offset_top = -268.5
+offset_right = 323.84
+offset_bottom = 268.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("5_uu8s0")
+text = " UAUmart"
+metadata/_edit_lock_ = true
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 23
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h8ioq")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.38
+metadata/_edit_lock_ = true
+
+[node name="ContinuarBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_uu8s0")
+text = "Continuar"
+metadata/_edit_lock_ = true
+
+[node name="SalvarBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+theme = ExtResource("5_uu8s0")
+theme_type_variation = &"FlatButton"
+text = "Salvar"
+metadata/_edit_lock_ = true
+
+[node name="OpcoesBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+theme = ExtResource("5_uu8s0")
+theme_type_variation = &"FlatButton"
+text = "Opções"
+metadata/_edit_lock_ = true
+
+[node name="SairBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_uu8s0")
+theme_type_variation = &"FlatButton"
+text = "Sair"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/ContinuarBtn" to="." method="_on_continuar_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/SalvarBtn" to="." method="_on_salvar_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/OpcoesBtn" to="." method="_on_opcoes_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/SairBtn" to="." method="_on_sair_btn_pressed"]
