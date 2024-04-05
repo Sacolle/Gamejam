@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://xgg4mnfsn70o"]
+
+[ext_resource type="AudioStream" uid="uid://dwcdx04ktctqn" path="res://assets/sounds/spin1.mp3" id="1_bqtuj"]
+[ext_resource type="AudioStream" uid="uid://4u4h216wif7c" path="res://assets/sounds/spin2.mp3" id="2_keuxy"]
+[ext_resource type="AudioStream" uid="uid://cl33uu367b8ka" path="res://assets/sounds/spin3.mp3" id="3_w3nwp"]
+[ext_resource type="AudioStream" uid="uid://dcnor105w0e60" path="res://assets/sounds/spin4.mp3" id="4_mm8bp"]
+[ext_resource type="AudioStream" uid="uid://dseehgucshe0m" path="res://assets/sounds/spin5.mp3" id="5_h65cf"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mvb5p"]
+streams_count = 5
+stream_0/stream = ExtResource("1_bqtuj")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_keuxy")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_w3nwp")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_mm8bp")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_h65cf")
+stream_4/weight = 1.0
+
+[node name="BoxSfx" type="AudioStreamPlayer3D"]
+stream = SubResource("AudioStreamRandomizer_mvb5p")
+volume_db = -20.0

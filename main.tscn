@@ -1,9 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://c510cmtigpytf"]
 
+
 [ext_resource type="Script" path="res://main.gd" id="1_xlcdy"]
 [ext_resource type="Resource" uid="uid://ct5qt3rpa80h8" path="res://Levels/debug_level.tres" id="2_ebq2t"]
 [ext_resource type="PackedScene" uid="uid://b6pnse6exakcf" path="res://scanner.tscn" id="2_ttui5"]
 [ext_resource type="Shader" path="res://GroundGridShader.gdshader" id="3_pt24n"]
+[ext_resource type="AudioStream" uid="uid://bmg4wvpbiyu5g" path="res://assets/sounds/beep.mp3" id="9_0snix"]
+[ext_resource type="AudioStream" uid="uid://b2x3boxwmlvsa" path="res://assets/sounds/esteirasfx.mp3" id="9_cephl"]
 
 [sub_resource type="Environment" id="Environment_ftk5f"]
 glow_enabled = true
@@ -57,6 +60,13 @@ billboard = 1
 no_depth_test = true
 text = "ORIGIN
 "
+
+[node name="BeltStepSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_cephl")
+volume_db = -6.169
+
+[node name="ItemCheckedSfx" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_0snix")
 
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="stepTimer" to="." method="_on_step_timer_timeout"]
