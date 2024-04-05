@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c510cmtigpytf"]
+[gd_scene load_steps=26 format=3 uid="uid://c510cmtigpytf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_xlcdy"]
 [ext_resource type="Resource" uid="uid://ct5qt3rpa80h8" path="res://Levels/debug_level.tres" id="2_ebq2t"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b45ipeoxd7lwr" path="res://assets/tiles/chao_32_0.png" id="9_ikj5f"]
 [ext_resource type="PackedScene" path="res://shelf_generator.tscn" id="10_jgv0c"]
 [ext_resource type="PackedScene" path="res://assets/3d/cart.gltf" id="11_oxva2"]
+[ext_resource type="PackedScene" uid="uid://c0bf84ss52sfk" path="res://pause_menu.tscn" id="12_8s1wk"]
 
 [sub_resource type="Environment" id="Environment_ftk5f"]
 glow_enabled = true
@@ -195,6 +196,8 @@ amount = 20
 
 [node name="carrinho_de_compras" parent="." instance=ExtResource("11_oxva2")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5, -2.22428, 4.14476)
+
+[node name="PauseMenuControl" parent="." instance=ExtResource("12_8s1wk")]
 
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="stepTimer" to="." method="_on_step_timer_timeout"]

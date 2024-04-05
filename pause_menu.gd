@@ -11,12 +11,13 @@ func _process(delta):
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
 		visible = !visible
-		get_tree().paused = !visible
-		print(get_tree().paused)
+		get_tree().paused = visible
+		print('isPaused: ', get_tree().paused)
 
 func _on_continuar_btn_pressed():
 	visible = !visible
-	get_tree().paused = !visible
+	get_tree().paused = visible
+	print('isPaused: ', get_tree().paused)
 	
 func _on_salvar_btn_pressed():
 	pass # Replace with function body.
