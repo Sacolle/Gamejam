@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://c510cmtigpytf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_xlcdy"]
-[ext_resource type="Resource" uid="uid://ct5qt3rpa80h8" path="res://Levels/debug_level.tres" id="2_ebq2t"]
+[ext_resource type="Resource" uid="uid://chp6eev23omeg" path="res://Levels/level2.tres" id="2_8fv2u"]
 [ext_resource type="PackedScene" uid="uid://b6pnse6exakcf" path="res://scanner.tscn" id="2_ttui5"]
 [ext_resource type="Shader" path="res://GroundGridShader.gdshader" id="3_pt24n"]
 [ext_resource type="Texture2D" uid="uid://bb2hw00uhsfao" path="res://assets/sprites/zaffinofinal_1.png" id="7_s6ako"]
@@ -52,11 +52,11 @@ size = Vector3(0.293365, 1.08887, 1)
 size = Vector3(1, 1.23132, 0.123901)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mvotb"]
-size = Vector3(4.12103, 1, 0.4729)
+size = Vector3(45, 1, 0.4729)
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_xlcdy")
-current_level = ExtResource("2_ebq2t")
+current_level = ExtResource("2_8fv2u")
 
 [node name="scanner" parent="." instance=ExtResource("2_ttui5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.79002)
@@ -175,7 +175,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.88875)
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.490326, 0, -0.120483)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05084, 0, -0.120483)
 shape = SubResource("BoxShape3D_mvotb")
 
 [node name="ShelfGenerator" parent="." instance=ExtResource("10_jgv0c")]
