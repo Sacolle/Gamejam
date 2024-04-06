@@ -24,6 +24,7 @@ var is_hit = false
 func _ready():
 	#conecta ao sinal de colisão do barcode
 	barcode.barcode_hit.connect(hit)
+	add_to_group("items")
 
 func start(pos: Vector3, _time_to_scan: float = 2, _item_value: float = 1):
 	position = pos

@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://c1ighttmh0k38"]
 
 [ext_resource type="Script" path="res://game_over_menu.gd" id="1_gcg20"]
-[ext_resource type="Texture2D" uid="uid://lriuoepufebt" path="res://assets/bg.png" id="2_ma2kf"]
-[ext_resource type="Texture2D" uid="uid://xkmptngw6vjw" path="res://assets/pc/ded_1.png" id="3_ahnio"]
-[ext_resource type="Texture2D" uid="uid://pogijb6pfm5x" path="res://assets/hud/botao.png" id="5_7bqti"]
-[ext_resource type="Texture2D" uid="uid://ch534jm7m40tb" path="res://assets/hud/botaopress.png" id="6_nwh6y"]
+[ext_resource type="Texture2D" uid="uid://ciok8ghr2bnqm" path="res://assets/bg.png" id="2_ma2kf"]
+[ext_resource type="Texture2D" uid="uid://35wo75fumvq2" path="res://assets/pc/ded_1.png" id="3_ahnio"]
+[ext_resource type="Texture2D" uid="uid://ch7dkxkpof55w" path="res://assets/hud/botao.png" id="5_7bqti"]
+[ext_resource type="Texture2D" uid="uid://muwt7uiadhup" path="res://assets/hud/botaopress.png" id="6_nwh6y"]
 [ext_resource type="Theme" uid="uid://1356byqvsec1" path="res://ui_theme_final.tres" id="7_5tumm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8ioq"]

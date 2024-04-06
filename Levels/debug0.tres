@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Level" load_steps=6 format=3 uid="uid://b13gxh26h6x7y"]
 
-[ext_resource type="Resource" path="res://Levels/debug1.tres" id="1_xa54s"]
+[ext_resource type="Resource" uid="uid://cr0iq0j6tsyxp" path="res://Levels/debug1.tres" id="1_xa54s"]
 [ext_resource type="Script" path="res://Scripts/levelResource.gd" id="2_0yvnk"]
 [ext_resource type="Script" path="res://Scripts/SpawnItemRes.gd" id="3_jg8sa"]
 
