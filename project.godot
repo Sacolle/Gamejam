@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="prototype"
+config/name="Uaumart"
 run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/favicon.png"
 
 [input]
 
