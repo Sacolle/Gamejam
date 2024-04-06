@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c510cmtigpytf"]
+[gd_scene load_steps=28 format=3 uid="uid://c510cmtigpytf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_xlcdy"]
 [ext_resource type="Resource" uid="uid://chp6eev23omeg" path="res://Levels/level2.tres" id="2_8fv2u"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://6ygjx1pajf30" path="res://assets/tiles/chao_32_0.png" id="9_ikj5f"]
 [ext_resource type="PackedScene" uid="uid://br02r0ascyk5b" path="res://shelf_generator.tscn" id="10_jgv0c"]
 [ext_resource type="PackedScene" uid="uid://mbe17120wkft" path="res://assets/3d/cart.gltf" id="11_oxva2"]
+[ext_resource type="Texture2D" uid="uid://dclaef573dmfn" path="res://assets/tiles/esteira_32_0.png" id="4_om8ni"]
+[ext_resource type="Texture2D" uid="uid://bkyyxywlipqaf" path="res://assets/tiles/esteira_32_1.png" id="5_4aoed"]
 [ext_resource type="PackedScene" uid="uid://c0bf84ss52sfk" path="res://pause_menu.tscn" id="12_8s1wk"]
 
 [sub_resource type="Environment" id="Environment_ftk5f"]
@@ -20,9 +22,15 @@ glow_enabled = true
 size = Vector2(4, 10)
 orientation = 1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vhbrv"]
-render_priority = 0
-shader = ExtResource("3_pt24n")
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_edcxd"]
+frames = 2
+frame_0/texture = ExtResource("4_om8ni")
+frame_1/texture = ExtResource("5_4aoed")
+frame_1/duration = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_guwnu"]
+albedo_texture = SubResource("AnimatedTexture_edcxd")
+uv1_scale = Vector3(4, 4, 4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hu0p"]
 albedo_texture = ExtResource("8_l42cy")
@@ -74,7 +82,7 @@ text = "Score: "
 [node name="chao" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, 2.5)
 mesh = SubResource("QuadMesh_o2jq0")
-surface_material_override/0 = SubResource("ShaderMaterial_vhbrv")
+surface_material_override/0 = SubResource("StandardMaterial3D_guwnu")
 
 [node name="sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.90978, -0.398177, 0.117281, 0, 0.282542, 0.959255, -0.41509, -0.872711, 0.257051, -2.16818, 2.285, 1)
