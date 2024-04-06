@@ -1,6 +1,8 @@
 @tool
 extends Node3D
 
+class_name FloatingProgressBar
+
 @export
 var value = 0
 # Called when the node enters the scene tree for the first time.

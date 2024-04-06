@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1qlmn70k3vve"]
+[gd_scene load_steps=9 format=3 uid="uid://c1qlmn70k3vve"]
 
 [ext_resource type="Script" path="res://components/item_script.gd" id="1_i80du"]
 [ext_resource type="PackedScene" uid="uid://ddv5b3y04rces" path="res://components/bar_code.tscn" id="2_wgne2"]
 [ext_resource type="PackedScene" uid="uid://cxqtp2r1r8aq7" path="res://components/collision_detection.tscn" id="3_oumkk"]
 [ext_resource type="PackedScene" uid="uid://0luxesgg6tq0" path="res://components/selected_cell.tscn" id="4_7v2an"]
-[ext_resource type="PackedScene" uid="uid://bds2vslnqwsjr" path="res://assets/3d/1x1/coka.gltf" id="4_ee76w"]
-[ext_resource type="PackedScene" path="res://components/box_sfx.tscn" id="5_gugpx"]
+[ext_resource type="PackedScene" uid="uid://dlgw7cm37jw8" path="res://assets/3d/1x1/coka.gltf" id="4_ee76w"]
+[ext_resource type="PackedScene" uid="uid://xgg4mnfsn70o" path="res://components/box_sfx.tscn" id="5_gugpx"]
+[ext_resource type="PackedScene" uid="uid://cj8idhh5kkbx8" path="res://ProgressBar.tscn" id="7_5gv2n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_reqyb"]
 size = Vector3(0.9, 1.46172, 0.9)
@@ -19,6 +20,8 @@ shape = SubResource("BoxShape3D_reqyb")
 
 [node name="barCode" parent="hitBox" instance=ExtResource("2_wgne2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.282843, 0.5)
+
+[node name="ProgressBar" parent="hitBox/barCode" instance=ExtResource("7_5gv2n")]
 
 [node name="collisionDetection" parent="hitBox" instance=ExtResource("3_oumkk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.280859, 0)
@@ -35,10 +38,13 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.
 
 [node name="TimeScanned" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.055, 0.26)
+visible = false
 billboard = 1
 text = "0"
 
 [node name="SelectedCell" parent="." instance=ExtResource("4_7v2an")]
 skeleton = NodePath("../hitBox")
+
+[node name="Node3D" parent="." instance=ExtResource("7_5gv2n")]
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

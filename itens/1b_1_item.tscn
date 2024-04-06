@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4rqnhuy1dkgy"]
+[gd_scene load_steps=10 format=3 uid="uid://c4rqnhuy1dkgy"]
 
 [ext_resource type="Script" path="res://components/item_script.gd" id="1_4lj56"]
 [ext_resource type="PackedScene" uid="uid://ddv5b3y04rces" path="res://components/bar_code.tscn" id="2_1ldkg"]
 [ext_resource type="PackedScene" uid="uid://cxqtp2r1r8aq7" path="res://components/collision_detection.tscn" id="3_4ftwg"]
 [ext_resource type="PackedScene" uid="uid://0luxesgg6tq0" path="res://components/selected_cell.tscn" id="4_mb2vu"]
-[ext_resource type="PackedScene" path="res://components/box_sfx.tscn" id="6_jyq51"]
+[ext_resource type="PackedScene" uid="uid://xgg4mnfsn70o" path="res://components/box_sfx.tscn" id="6_jyq51"]
+[ext_resource type="PackedScene" uid="uid://cj8idhh5kkbx8" path="res://ProgressBar.tscn" id="6_r225q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_reqyb"]
 size = Vector3(0.9, 0.9, 0.9)
@@ -23,6 +24,9 @@ shape = SubResource("BoxShape3D_reqyb")
 
 [node name="barCode" parent="hitBox" instance=ExtResource("2_1ldkg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00198364, 0.5)
+
+[node name="ProgressBar" parent="hitBox/barCode" instance=ExtResource("6_r225q")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.00198364, -0.5)
 
 [node name="mesh" type="MeshInstance3D" parent="hitBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.95, 0, 0, 0)
@@ -53,6 +57,7 @@ collide_with_areas = true
 
 [node name="TimeScanned" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.055, 0.26)
+visible = false
 billboard = 1
 text = "0"
 
