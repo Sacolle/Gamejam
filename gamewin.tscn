@@ -1,18 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://cyb88nidcvb51"]
+[gd_scene load_steps=13 format=3 uid="uid://b6uhuswd23rx0"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_gkga2"]
-[ext_resource type="Shader" path="res://gamewin.gdshader" id="2_gtjrn"]
-[ext_resource type="Theme" uid="uid://e3wa1604kqud" path="res://ui_theme.tres" id="2_huf66"]
-[ext_resource type="Texture2D" uid="uid://rlcc2wgnq3h6" path="res://assets/sprites/mainmenu.png" id="3_2tigh"]
-[ext_resource type="Texture2D" uid="uid://vqa8ttqx3nb1" path="res://assets/tiles/bg.png" id="3_iqu41"]
-[ext_resource type="Texture2D" uid="uid://cpjag41nlpy6y" path="res://assets/hud/logo.png" id="5_cfpyk"]
-[ext_resource type="Texture2D" uid="uid://cf84veoxpo53i" path="res://assets/hud/jogar.png" id="7_mwki3"]
-[ext_resource type="Texture2D" uid="uid://dpwsbl8fs0gmi" path="res://assets/hud/jogarpress.png" id="8_qpuv2"]
-[ext_resource type="Texture2D" uid="uid://c08m5ymjnhdor" path="res://assets/hud/sair.png" id="9_gyg7f"]
-[ext_resource type="Texture2D" uid="uid://dtejwbiqnsm8n" path="res://assets/hud/sairpress.png" id="10_4nuh2"]
+[ext_resource type="Script" path="res://menu.gd" id="1_3wxir"]
+[ext_resource type="Texture2D" uid="uid://vqa8ttqx3nb1" path="res://assets/tiles/bg.png" id="2_nc04s"]
+[ext_resource type="Shader" path="res://gamewin.gdshader" id="3_ic5fr"]
+[ext_resource type="Texture2D" uid="uid://bsb1qqq6ltr2l" path="res://assets/sprites/funcdomes_2.png" id="3_iwsug"]
+[ext_resource type="Texture2D" uid="uid://cpjag41nlpy6y" path="res://assets/hud/logo.png" id="5_hor1n"]
+[ext_resource type="Theme" uid="uid://e3wa1604kqud" path="res://ui_theme.tres" id="6_c1pfm"]
+[ext_resource type="Texture2D" uid="uid://cf84veoxpo53i" path="res://assets/hud/jogar.png" id="7_vu35m"]
+[ext_resource type="Texture2D" uid="uid://dpwsbl8fs0gmi" path="res://assets/hud/jogarpress.png" id="8_vq4f2"]
+[ext_resource type="Texture2D" uid="uid://c08m5ymjnhdor" path="res://assets/hud/sair.png" id="9_e2dti"]
+[ext_resource type="Texture2D" uid="uid://dtejwbiqnsm8n" path="res://assets/hud/sairpress.png" id="10_bhajr"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w6f6u"]
-shader = ExtResource("2_gtjrn")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rn3rj"]
+shader = ExtResource("3_ic5fr")
 shader_parameter/speed = 0.1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8ioq"]
@@ -24,7 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_gkga2")
+script = ExtResource("1_3wxir")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -34,21 +34,19 @@ motion_mirroring = Vector2(512, 512)
 
 [node name="Bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_repeat = 2
-material = SubResource("ShaderMaterial_w6f6u")
+material = SubResource("ShaderMaterial_rn3rj")
 position = Vector2(257, 258)
-texture = ExtResource("3_iqu41")
+texture = ExtResource("2_nc04s")
 
 [node name="Bg3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_repeat = 2
-material = SubResource("ShaderMaterial_w6f6u")
+material = SubResource("ShaderMaterial_rn3rj")
 position = Vector2(1281, 258)
-texture = ExtResource("3_iqu41")
+texture = ExtResource("2_nc04s")
 
-[node name="Mainmenu" type="Sprite2D" parent="."]
-position = Vector2(932, 338)
-scale = Vector2(0.9, 0.909)
-texture = ExtResource("3_2tigh")
-metadata/_edit_lock_ = true
+[node name="Funcdomes2" type="Sprite2D" parent="."]
+position = Vector2(838, 346)
+texture = ExtResource("3_iwsug")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -77,14 +75,14 @@ metadata/_edit_lock_ = true
 
 [node name="Título" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("5_cfpyk")
+texture = ExtResource("5_hor1n")
 expand_mode = 5
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
-theme = ExtResource("2_huf66")
+theme = ExtResource("6_c1pfm")
 text = " UAUmart"
 metadata/_edit_lock_ = true
 
@@ -103,17 +101,17 @@ metadata/_edit_lock_ = true
 [node name="JogarBtn" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("7_mwki3")
-texture_pressed = ExtResource("8_qpuv2")
-texture_hover = ExtResource("8_qpuv2")
+texture_normal = ExtResource("7_vu35m")
+texture_pressed = ExtResource("8_vq4f2")
+texture_hover = ExtResource("8_vq4f2")
 metadata/_edit_lock_ = true
 
 [node name="SairBtn" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("9_gyg7f")
-texture_pressed = ExtResource("10_4nuh2")
-texture_hover = ExtResource("10_4nuh2")
+texture_normal = ExtResource("9_e2dti")
+texture_pressed = ExtResource("10_bhajr")
+texture_hover = ExtResource("10_bhajr")
 metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/JogarBtn" to="." method="_on_jogar_btn_pressed"]
