@@ -69,7 +69,7 @@ size = Vector3(45, 1, 0.4729)
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_xlcdy")
-current_level = ExtResource("2_8fv2u")
+current_level = ExtResource("2_ve1vk")
 
 [node name="scanner" parent="." instance=ExtResource("2_ttui5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.79002)
@@ -245,6 +245,7 @@ skeleton = NodePath("../Can Fridge2")
 
 [node name="PauseMenuControl" parent="." instance=ExtResource("12_8s1wk")]
 
+[connection signal="level_ended" from="." to="." method="_on_level_ended"]
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="stepTimer" to="." method="_on_step_timer_timeout"]
 [connection signal="area_entered" from="Scenario/KillBox" to="." method="_on_kill_box_area_entered"]

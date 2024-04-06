@@ -1,0 +1,153 @@
+[gd_resource type="Resource" script_class="Level" load_steps=24 format=3 uid="uid://bgeohievj1icg"]
+
+[ext_resource type="Resource" uid="uid://x3f0rhqp3rfe" path="res://Levels/level1.tres" id="1_xubua"]
+[ext_resource type="Script" path="res://Scripts/levelResource.gd" id="2_0yvnk"]
+[ext_resource type="Script" path="res://Scripts/SpawnItemRes.gd" id="3_jg8sa"]
+
+[sub_resource type="Resource" id="Resource_j88yg"]
+script = ExtResource("3_jg8sa")
+id = "coca"
+position = Vector2i(0, -3)
+orientation = 2
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_vqxco"]
+script = ExtResource("3_jg8sa")
+id = "succ"
+position = Vector2i(-1, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_jomrd"]
+script = ExtResource("3_jg8sa")
+id = "monster"
+position = Vector2i(1, -3)
+orientation = 0
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_3nlui"]
+script = ExtResource("3_jg8sa")
+id = "succ"
+position = Vector2i(1, -3)
+orientation = 0
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_tpibe"]
+script = ExtResource("3_jg8sa")
+id = "coca"
+position = Vector2i(-2, -3)
+orientation = 0
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_hi33r"]
+script = ExtResource("3_jg8sa")
+id = "guarana"
+position = Vector2i(-1, -3)
+orientation = 3
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_skrj1"]
+script = ExtResource("3_jg8sa")
+id = "monster"
+position = Vector2i(0, -3)
+orientation = 1
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_wigkt"]
+script = ExtResource("3_jg8sa")
+id = "coca"
+position = Vector2i(-1, -3)
+orientation = 3
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_qh2tp"]
+script = ExtResource("3_jg8sa")
+id = "succ"
+position = Vector2i(0, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_aya0r"]
+script = ExtResource("3_jg8sa")
+id = "guarana"
+position = Vector2i(-2, -3)
+orientation = 2
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_uq3xh"]
+script = ExtResource("3_jg8sa")
+id = "monster"
+position = Vector2i(-2, -3)
+orientation = 0
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_rab6b"]
+script = ExtResource("3_jg8sa")
+id = "monster"
+position = Vector2i(-1, -3)
+orientation = 1
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_nrdk6"]
+script = ExtResource("3_jg8sa")
+id = "monster"
+position = Vector2i(0, -3)
+orientation = 2
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_tb36j"]
+script = ExtResource("3_jg8sa")
+id = "monster"
+position = Vector2i(1, -3)
+orientation = 3
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_xw6am"]
+script = ExtResource("3_jg8sa")
+id = "monster"
+position = Vector2i(-2, -3)
+orientation = 1
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_3o1ft"]
+script = ExtResource("3_jg8sa")
+id = "succ"
+position = Vector2i(-1, -3)
+orientation = 3
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_ymgmh"]
+script = ExtResource("3_jg8sa")
+id = "guarana"
+position = Vector2i(1, -3)
+orientation = 2
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_ip3xc"]
+script = ExtResource("3_jg8sa")
+id = "coca"
+position = Vector2i(-2, -3)
+orientation = 2
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_1w0lw"]
+script = ExtResource("3_jg8sa")
+id = "milk"
+position = Vector2i(1, -3)
+orientation = 0
+immediate_next = true
+
+[sub_resource type="Resource" id="Resource_kagxm"]
+script = ExtResource("3_jg8sa")
+id = "coca"
+position = Vector2i(-1, -3)
+orientation = 0
+immediate_next = false
+
+[resource]
+script = ExtResource("2_0yvnk")
+id = 0
+title = "mimi"
+enemy = "cat"
+spawns = Array[ExtResource("3_jg8sa")]([SubResource("Resource_j88yg"), null, null, SubResource("Resource_vqxco"), null, SubResource("Resource_jomrd"), SubResource("Resource_3nlui"), null, SubResource("Resource_tpibe"), SubResource("Resource_hi33r"), SubResource("Resource_skrj1"), SubResource("Resource_wigkt"), SubResource("Resource_qh2tp"), SubResource("Resource_aya0r"), SubResource("Resource_uq3xh"), SubResource("Resource_rab6b"), SubResource("Resource_nrdk6"), SubResource("Resource_tb36j"), SubResource("Resource_xw6am"), SubResource("Resource_3o1ft"), SubResource("Resource_ymgmh"), SubResource("Resource_ip3xc"), null, SubResource("Resource_1w0lw"), SubResource("Resource_kagxm")])
+next_level = ExtResource("1_xubua")

@@ -137,3 +137,12 @@ func _on_kill_box_area_entered(area):
 	print("game over")
 	area.queue_free()
 	get_tree().change_scene_to_file("res://game_over_menu.tscn")
+
+func _on_level_ended(score):
+	if (current_level.next_level):
+		# The game continues
+		current_level = current_level.next_level
+		time = 0
+		live_items = 0
+		finished_spawning = false
+	pass # Replace with function body.
