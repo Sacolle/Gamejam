@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddv5b3y04rces"]
 
 [ext_resource type="Script" path="res://components/bar_code.gd" id="1_minww"]
-[ext_resource type="Texture2D" uid="uid://bqrpbibdbhuby" path="res://assets/tiles/qrCode.png" id="2_qwi1x"]
+[ext_resource type="Texture2D" uid="uid://bj6gq2m7uurer" path="res://assets/tiles/qrCode.png" id="2_qwi1x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7guva"]
 size = Vector3(1, 1, 0)
