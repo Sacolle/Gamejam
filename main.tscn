@@ -1,8 +1,8 @@
 [gd_scene load_steps=33 format=3 uid="uid://c510cmtigpytf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_xlcdy"]
-[ext_resource type="Resource" uid="uid://b13gxh26h6x7y" path="res://Levels/debug0.tres" id="2_1ajx5"]
 [ext_resource type="PackedScene" uid="uid://b6pnse6exakcf" path="res://scanner.tscn" id="2_ttui5"]
+[ext_resource type="Resource" uid="uid://ct5qt3rpa80h8" path="res://Levels/level0.tres" id="2_yrwns"]
 [ext_resource type="PackedScene" uid="uid://dpgfqvlc18r60" path="res://assets/3d/scanner.gltf" id="4_0nto1"]
 [ext_resource type="Texture2D" uid="uid://dclaef573dmfn" path="res://assets/tiles/esteira_32_0.png" id="4_om8ni"]
 [ext_resource type="Texture2D" uid="uid://bkyyxywlipqaf" path="res://assets/tiles/esteira_32_1.png" id="5_4aoed"]
@@ -69,7 +69,7 @@ size = Vector3(45, 1, 0.4729)
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_xlcdy")
-current_level = ExtResource("2_1ajx5")
+current_level = ExtResource("2_yrwns")
 
 [node name="scanner" parent="." instance=ExtResource("2_ttui5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.79002)
