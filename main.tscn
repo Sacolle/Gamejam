@@ -69,7 +69,7 @@ size = Vector3(45, 1, 0.4729)
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_xlcdy")
-current_level = ExtResource("2_ve1vk")
+current_level = ExtResource("2_8fv2u")
 
 [node name="scanner" parent="." instance=ExtResource("2_ttui5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.79002)
