@@ -17,7 +17,7 @@ config/icon="res://assets/favicon.png"
 
 [display]
 
-mouse_cursor/custom_image="res://assets/sprites/patafechada.png"
+mouse_cursor/custom_image="res://assets/sprites/patafechada_small.png"
 
 [input]
 
