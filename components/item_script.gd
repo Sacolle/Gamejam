@@ -14,6 +14,7 @@ signal item_scanned(value)
 @onready var barcode = $hitBox/barCode
 @onready var selected_cell = $SelectedCell
 @onready var sfx = $BoxSfx
+@onready var progress: FloatingProgressBar = $hitBox/barCode/ProgressBar
 
 #private variables
 var time: float = 0
@@ -84,6 +85,10 @@ func current_orientation() -> int:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#label.text = str(time_to_scan - time)
+	if progress:
+		progress.value = 100*(time/time_to_scan)
+	else:
+		print("WARN: Obj sem ProgresBar")
 	if is_hit:
 		time += delta
 		if time > time_to_scan:

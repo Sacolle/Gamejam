@@ -1,15 +1,15 @@
 [gd_scene load_steps=12 format=3 uid="uid://cyb88nidcvb51"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_gkga2"]
-[ext_resource type="Texture2D" uid="uid://dp557lti83w5p" path="res://assets/pc/bonitrevas.png" id="2_7sybx"]
+[ext_resource type="Texture2D" uid="uid://d3hesjd27tdei" path="res://assets/pc/bonitrevas.png" id="2_7sybx"]
 [ext_resource type="Theme" uid="uid://e3wa1604kqud" path="res://ui_theme.tres" id="2_huf66"]
-[ext_resource type="Texture2D" uid="uid://lriuoepufebt" path="res://assets/bg.png" id="2_rwdav"]
-[ext_resource type="Texture2D" uid="uid://rlcc2wgnq3h6" path="res://assets/sprites/mainmenu.png" id="3_2tigh"]
-[ext_resource type="Texture2D" uid="uid://cpjag41nlpy6y" path="res://assets/hud/logo.png" id="5_cfpyk"]
-[ext_resource type="Texture2D" uid="uid://cf84veoxpo53i" path="res://assets/hud/jogar.png" id="7_mwki3"]
-[ext_resource type="Texture2D" uid="uid://dpwsbl8fs0gmi" path="res://assets/hud/jogarpress.png" id="8_qpuv2"]
-[ext_resource type="Texture2D" uid="uid://c08m5ymjnhdor" path="res://assets/hud/sair.png" id="9_gyg7f"]
-[ext_resource type="Texture2D" uid="uid://dtejwbiqnsm8n" path="res://assets/hud/sairpress.png" id="10_4nuh2"]
+[ext_resource type="Texture2D" uid="uid://ciok8ghr2bnqm" path="res://assets/bg.png" id="2_rwdav"]
+[ext_resource type="Texture2D" uid="uid://dkqalnx4v7nm7" path="res://assets/sprites/mainmenu.png" id="3_2tigh"]
+[ext_resource type="Texture2D" uid="uid://btnojv5b1bmqg" path="res://assets/hud/logo.png" id="5_cfpyk"]
+[ext_resource type="Texture2D" uid="uid://ca5xwe1g1mhxm" path="res://assets/hud/jogar.png" id="7_mwki3"]
+[ext_resource type="Texture2D" uid="uid://cvx2b3s2qy446" path="res://assets/hud/jogarpress.png" id="8_qpuv2"]
+[ext_resource type="Texture2D" uid="uid://bkewuhq314ufw" path="res://assets/hud/sair.png" id="9_gyg7f"]
+[ext_resource type="Texture2D" uid="uid://km3gw0nadqsd" path="res://assets/hud/sairpress.png" id="10_4nuh2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8ioq"]
 

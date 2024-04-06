@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbj3u2iav2o8k"]
+[gd_scene load_steps=9 format=3 uid="uid://cbj3u2iav2o8k"]
 
 [ext_resource type="Script" path="res://components/item_script.gd" id="1_xo3r7"]
 [ext_resource type="PackedScene" uid="uid://ddv5b3y04rces" path="res://components/bar_code.tscn" id="2_32jew"]
 [ext_resource type="PackedScene" uid="uid://cxqtp2r1r8aq7" path="res://components/collision_detection.tscn" id="3_nd3sw"]
 [ext_resource type="PackedScene" uid="uid://0luxesgg6tq0" path="res://components/selected_cell.tscn" id="4_mtmlm"]
-[ext_resource type="PackedScene" uid="uid://cmy8pq6w6m6kx" path="res://assets/3d/3x1/aipoS.gltf" id="4_rhqx6"]
-[ext_resource type="PackedScene" path="res://components/box_sfx.tscn" id="5_gtb2l"]
+[ext_resource type="PackedScene" uid="uid://bxy6t3h4k7cl8" path="res://assets/3d/3x1/aipoS.gltf" id="4_rhqx6"]
+[ext_resource type="PackedScene" uid="uid://xgg4mnfsn70o" path="res://components/box_sfx.tscn" id="5_gtb2l"]
+[ext_resource type="PackedScene" uid="uid://cj8idhh5kkbx8" path="res://ProgressBar.tscn" id="7_2wbln"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_reqyb"]
 size = Vector3(2.89443, 0.9, 0.9)
@@ -19,6 +20,9 @@ shape = SubResource("BoxShape3D_reqyb")
 
 [node name="barCode" parent="hitBox" instance=ExtResource("2_32jew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00903, 0, 0.5)
+
+[node name="ProgressBar" parent="hitBox/barCode" instance=ExtResource("7_2wbln")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.00198364, -0.5)
 
 [node name="collisionDetection" parent="hitBox" instance=ExtResource("3_nd3sw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00903, 0.00198364, 0)
@@ -41,6 +45,7 @@ transform = Transform3D(-1.31134e-07, 0, -4.6, 0, 5, 0, 3, 0, -2.01072e-07, 0.41
 
 [node name="TimeScanned" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.055, 0.26)
+visible = false
 billboard = 1
 text = "0"
 
