@@ -141,7 +141,9 @@ func _on_kill_box_area_entered(area):
 func _on_level_ended(score):
 	if (current_level.next_level):
 		# The game continues
+		print("Going to next level!")
 		current_level = current_level.next_level
+		$EnemySprite.texture = inimigos[current_level.enemy]
 		time = 0
 		live_items = 0
 		finished_spawning = false
