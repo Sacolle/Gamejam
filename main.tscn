@@ -1,19 +1,22 @@
-[gd_scene load_steps=28 format=3 uid="uid://c510cmtigpytf"]
+[gd_scene load_steps=33 format=3 uid="uid://c510cmtigpytf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_xlcdy"]
-[ext_resource type="Resource" uid="uid://chp6eev23omeg" path="res://Levels/level2.tres" id="2_8fv2u"]
+[ext_resource type="Resource" uid="uid://u311cldjr565" path="res://Levels/level2.tres" id="2_8fv2u"]
 [ext_resource type="PackedScene" uid="uid://b6pnse6exakcf" path="res://scanner.tscn" id="2_ttui5"]
-[ext_resource type="Shader" path="res://GroundGridShader.gdshader" id="3_pt24n"]
-[ext_resource type="Texture2D" uid="uid://bbpg4rgq1fwn3" path="res://assets/sprites/zaffinofinal_1.png" id="7_s6ako"]
-[ext_resource type="Texture2D" uid="uid://di6aesa6105k8" path="res://assets/tiles/chao_32_1.png" id="8_l42cy"]
-[ext_resource type="AudioStream" uid="uid://bw8kjwjtfignq" path="res://assets/sounds/beep.mp3" id="9_0snix"]
-[ext_resource type="AudioStream" uid="uid://djnsrug327dw4" path="res://assets/sounds/esteirasfx.mp3" id="9_cephl"]
-[ext_resource type="Texture2D" uid="uid://6ygjx1pajf30" path="res://assets/tiles/chao_32_0.png" id="9_ikj5f"]
-[ext_resource type="PackedScene" uid="uid://br02r0ascyk5b" path="res://shelf_generator.tscn" id="10_jgv0c"]
-[ext_resource type="PackedScene" uid="uid://mbe17120wkft" path="res://assets/3d/cart.gltf" id="11_oxva2"]
-[ext_resource type="Texture2D" uid="uid://dclaef573dmfn" path="res://assets/tiles/esteira_32_0.png" id="4_om8ni"]
-[ext_resource type="Texture2D" uid="uid://bkyyxywlipqaf" path="res://assets/tiles/esteira_32_1.png" id="5_4aoed"]
+[ext_resource type="PackedScene" uid="uid://dchx48jj6kdx2" path="res://assets/3d/scanner.gltf" id="4_0nto1"]
+[ext_resource type="Texture2D" uid="uid://clkgan3xxyxge" path="res://assets/tiles/esteira_32_0.png" id="4_om8ni"]
+[ext_resource type="Texture2D" uid="uid://46rfgujn7saw" path="res://assets/tiles/esteira_32_1.png" id="5_4aoed"]
+[ext_resource type="Texture2D" uid="uid://bb2hw00uhsfao" path="res://assets/sprites/zaffinofinal_1.png" id="7_s6ako"]
+[ext_resource type="Texture2D" uid="uid://cs1r713gudcxu" path="res://assets/tiles/chao_32_1.png" id="8_l42cy"]
+[ext_resource type="AudioStream" uid="uid://brity4n6vtoqu" path="res://assets/sounds/beep.mp3" id="9_0snix"]
+[ext_resource type="AudioStream" uid="uid://blmtl81v3yop3" path="res://assets/sounds/esteirasfx.mp3" id="9_cephl"]
+[ext_resource type="Texture2D" uid="uid://b45ipeoxd7lwr" path="res://assets/tiles/chao_32_0.png" id="9_ikj5f"]
+[ext_resource type="PackedScene" path="res://shelf_generator.tscn" id="10_jgv0c"]
+[ext_resource type="PackedScene" uid="uid://brf10feobvyyj" path="res://assets/3d/cart.gltf" id="11_oxva2"]
 [ext_resource type="PackedScene" uid="uid://c0bf84ss52sfk" path="res://pause_menu.tscn" id="12_8s1wk"]
+[ext_resource type="PackedScene" uid="uid://xhlh6bkv8iqe" path="res://assets/3d/scenario/Houseplant.glb" id="13_s8i17"]
+[ext_resource type="PackedScene" uid="uid://crh48jaewu8mw" path="res://assets/3d/scenario/Cash register.glb" id="14_obioa"]
+[ext_resource type="PackedScene" uid="uid://bjc7lphbkw33g" path="res://assets/3d/scenario/Can Fridge.glb" id="15_88sqm"]
 
 [sub_resource type="Environment" id="Environment_ftk5f"]
 glow_enabled = true
@@ -62,6 +65,8 @@ size = Vector3(1, 1.23132, 0.123901)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mvotb"]
 size = Vector3(45, 1, 0.4729)
 
+[sub_resource type="BoxMesh" id="BoxMesh_oljc7"]
+
 [node name="main" type="Node3D"]
 script = ExtResource("1_xlcdy")
 current_level = ExtResource("2_8fv2u")
@@ -69,9 +74,13 @@ current_level = ExtResource("2_8fv2u")
 [node name="scanner" parent="." instance=ExtResource("2_ttui5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.79002)
 
+[node name="blockbench_export" parent="scanner" instance=ExtResource("4_0nto1")]
+transform = Transform3D(-1.96701e-07, 0, -4.5, 0, 4.5, 0, 4.5, 0, -1.96701e-07, 0.624388, -1.09025, -0.157319)
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.657375, -0.376782, 0.652605, 0, 0.866025, 0.500001, -0.753563, -0.328688, 0.569304, 5.44168, 5.2001, 9.93254)
 environment = SubResource("Environment_ftk5f")
+current = true
 fov = 60.0
 
 [node name="ScoreLabel" type="Label3D" parent="Camera3D"]
@@ -85,8 +94,12 @@ mesh = SubResource("QuadMesh_o2jq0")
 surface_material_override/0 = SubResource("StandardMaterial3D_guwnu")
 
 [node name="sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.90978, -0.398177, 0.117281, 0, 0.282542, 0.959255, -0.41509, -0.872711, 0.257051, -2.16818, 2.285, 1)
+transform = Transform3D(-0.593419, -0.772146, 0.227255, 0, 0.282341, 0.959314, -0.804894, 0.569275, -0.167547, -2.79309, 8.94947, 1.88821)
+light_color = Color(1, 0.956863, 0.85098, 1)
+light_energy = 2.225
+light_indirect_energy = 1.188
 shadow_enabled = true
+shadow_opacity = 0.65
 
 [node name="spawnTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -110,103 +123,128 @@ pixel_size = 0.02
 billboard = 1
 texture = ExtResource("7_s6ako")
 
-[node name="bg_meshes" type="Node3D" parent="."]
+[node name="Scenario" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="bg_meshes"]
+[node name="bg" type="Node3D" parent="Scenario"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/bg"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.7174, -5.01817, -27.894)
 material_override = SubResource("StandardMaterial3D_1hu0p")
 mesh = SubResource("PlaneMesh_l57dq")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="bg_meshes"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Scenario/bg"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.1175, -0.155541, -21.9725)
 material_override = SubResource("StandardMaterial3D_f7vx1")
 mesh = SubResource("PlaneMesh_m8smu")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="bg_meshes"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Scenario/bg"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.9813, -0.155541, -61.426)
 material_override = SubResource("StandardMaterial3D_f7vx1")
 mesh = SubResource("PlaneMesh_m8smu")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="caixa_model" type="MeshInstance3D" parent="."]
+[node name="Esteira" type="MeshInstance3D" parent="Scenario"]
 transform = Transform3D(4, 0, 0, 0, 4.6957, 0, 0, 0, 10, -0.5, -2.9052, 2.5)
 mesh = SubResource("BoxMesh_bo3em")
 skeleton = NodePath("")
 
-[node name="cerca" type="Area3D" parent="caixa_model"]
+[node name="cerca" type="Area3D" parent="Scenario/Esteira"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528515, 0.160902, 0)
 input_ray_pickable = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="caixa_model/cerca"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/Esteira/cerca"]
 transform = Transform3D(0.067, 0, 0, 0, 1.049, 0, 0, 0, 1, -0.00568771, -0.0622058, 0)
 mesh = SubResource("BoxMesh_t0saq")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="caixa_model/cerca"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Esteira/cerca"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.138458, 0.0444336, 0)
 shape = SubResource("BoxShape3D_c4eq3")
 
-[node name="cerca2" type="Area3D" parent="caixa_model"]
+[node name="cerca2" type="Area3D" parent="Scenario/Esteira"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.797595, 0.160902, 0)
 input_ray_pickable = false
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="caixa_model/cerca2"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Scenario/Esteira/cerca2"]
 transform = Transform3D(0.067, 0, 0, 0, 1.049, 0, 0, 0, 1, -0.259801, -0.0622058, 0)
 mesh = SubResource("BoxMesh_t0saq")
 skeleton = NodePath("../../cerca")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="caixa_model/cerca2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Esteira/cerca2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125565, 0.0444336, 0)
 shape = SubResource("BoxShape3D_c4eq3")
 
-[node name="round_base1" type="MeshInstance3D" parent="caixa_model"]
+[node name="round_base1" type="MeshInstance3D" parent="Scenario/Esteira"]
 transform = Transform3D(0.992461, 0, 0, 0, 0.496576, 0, 0, 0, 0.123509, 0.00297409, 0.00339454, 0.501591)
-mesh = SubResource("CylinderMesh_mnnln")
-skeleton = NodePath("../..")
-
-[node name="cerca_atras" type="Area3D" parent="caixa_model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.468321)
-input_ray_pickable = false
-
-[node name="round_base2" type="MeshInstance3D" parent="caixa_model/cerca_atras"]
-transform = Transform3D(0.992461, 0, 0, 0, 0.496576, 0, 0, 0, 0.219364, 0, 0, -0.0199902)
 mesh = SubResource("CylinderMesh_mnnln")
 skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="caixa_model/cerca_atras"]
+[node name="cerca_atras" type="Area3D" parent="Scenario/Esteira"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.468321)
+input_ray_pickable = false
+
+[node name="round_base2" type="MeshInstance3D" parent="Scenario/Esteira/cerca_atras"]
+transform = Transform3D(0.992461, 0, 0, 0, 0.496576, 0, 0, 0, 0.219364, 0, 0, -0.0199902)
+mesh = SubResource("CylinderMesh_mnnln")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/Esteira/cerca_atras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115662, -0.103943)
 shape = SubResource("BoxShape3D_2ekqm")
 
-[node name="KillBox" type="Area3D" parent="."]
+[node name="KillBox" type="Area3D" parent="Scenario"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.88875)
 collision_layer = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KillBox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/KillBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05084, 0, -0.120483)
 shape = SubResource("BoxShape3D_mvotb")
 
-[node name="ShelfGenerator" parent="." instance=ExtResource("10_jgv0c")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 3.94017, -4.2043, -11.5056)
+[node name="Shelves" type="Node3D" parent="Scenario"]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -0.923282, -4.825, 9.55119)
+
+[node name="ShelfGenerator" parent="Scenario/Shelves" instance=ExtResource("10_jgv0c")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 13.0178, 0.31035, 3.38308)
 amount = 20
 
-[node name="ShelfGenerator2" parent="." instance=ExtResource("10_jgv0c")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -4.08531, -4.2043, -11.4146)
+[node name="ShelfGenerator2" parent="Scenario/Shelves" instance=ExtResource("10_jgv0c")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 13.0552, 0.31035, -2.80127)
 amount = 20
 
-[node name="ShelfGenerator3" parent="." instance=ExtResource("10_jgv0c")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -14.301, -4.2043, 0.827394)
+[node name="ShelfGenerator3" parent="Scenario/Shelves" instance=ExtResource("10_jgv0c")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.64532, 0.31035, -6.8012)
 amount = 20
 
-[node name="ShelfGenerator4" parent="." instance=ExtResource("10_jgv0c")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -22.542, -4.2043, 9.44092)
+[node name="ShelfGenerator4" parent="Scenario/Shelves" instance=ExtResource("10_jgv0c")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 12.9697, 0.31035, 0.393408)
 amount = 20
 
-[node name="carrinho_de_compras" parent="." instance=ExtResource("11_oxva2")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5, -2.22428, 4.14476)
+[node name="Objects" type="Node3D" parent="Scenario"]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -0.923282, -4.825, 9.55119)
+
+[node name="carrinho_de_compras" parent="Scenario/Objects" instance=ExtResource("11_oxva2")]
+transform = Transform3D(-1.09278e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278e-07, 2.70321, 1.30036, -2.03836)
+
+[node name="Planta" parent="Scenario/Objects" instance=ExtResource("13_s8i17")]
+transform = Transform3D(3.23886, 0, -2.48527, 0, 4.0825, 0, 2.48527, 0, 3.23886, 7.34487, -0.0405645, 3.49101)
+
+[node name="Cash register" parent="Scenario/Objects" instance=ExtResource("14_obioa")]
+transform = Transform3D(0.0949964, 0, 0.000829016, 0, 0.095, 0, -0.000829016, 0, 0.0949964, -0.698143, 2.15547, 0.178081)
+
+[node name="Can Fridge" parent="Scenario/Objects" instance=ExtResource("15_88sqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.69991, 0, -6.71136)
+
+[node name="Can Fridge2" parent="Scenario/Objects" instance=ExtResource("15_88sqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.09628, 0, -6.71136)
+
+[node name="Counter" type="MeshInstance3D" parent="Scenario/Objects"]
+transform = Transform3D(2.875, 0, 0, 0, 3.95, 0, 0, 0, 2.13, -0.396049, 0.0268059, 0.159086)
+mesh = SubResource("BoxMesh_oljc7")
+skeleton = NodePath("../Can Fridge2")
 
 [node name="PauseMenuControl" parent="." instance=ExtResource("12_8s1wk")]
 
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="stepTimer" to="." method="_on_step_timer_timeout"]
-[connection signal="area_entered" from="KillBox" to="." method="_on_kill_box_area_entered"]
+[connection signal="area_entered" from="Scenario/KillBox" to="." method="_on_kill_box_area_entered"]
