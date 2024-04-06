@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Level" load_steps=6 format=3 uid="uid://b13gxh26h6x7y"]
+
+[ext_resource type="Resource" path="res://Levels/debug1.tres" id="1_xa54s"]
+[ext_resource type="Script" path="res://Scripts/levelResource.gd" id="2_0yvnk"]
+[ext_resource type="Script" path="res://Scripts/SpawnItemRes.gd" id="3_jg8sa"]
+
+[sub_resource type="Resource" id="Resource_j88yg"]
+script = ExtResource("3_jg8sa")
+id = "coca"
+position = Vector2i(0, -3)
+orientation = 2
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_vqxco"]
+script = ExtResource("3_jg8sa")
+id = "succ"
+position = Vector2i(-1, -3)
+orientation = 3
+immediate_next = false
+
+[resource]
+script = ExtResource("2_0yvnk")
+id = 0
+title = "mimi"
+enemy = "cat"
+spawns = Array[ExtResource("3_jg8sa")]([SubResource("Resource_j88yg"), null, null, SubResource("Resource_vqxco")])
+next_level = ExtResource("1_xa54s")

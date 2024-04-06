@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b6pnse6exakcf"]
 
 [ext_resource type="Script" path="res://scanner.gd" id="1_6ugfv"]
-[ext_resource type="AudioStream" uid="uid://bxj8q60etu7i1" path="res://assets/sounds/lazer_sustain.mp3" id="2_83rry"]
+[ext_resource type="AudioStream" uid="uid://dot1xux8o1idu" path="res://assets/sounds/lazer_sustain.mp3" id="2_83rry"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g425t"]
 
@@ -67,6 +67,7 @@ script = ExtResource("1_6ugfv")
 
 [node name="scanner_mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.999982, -0.00510336, 0.00318677, 0.00511223, 0.999983, -0.00278228, -0.00317252, 0.00279852, 0.999991, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_g425t")
 surface_material_override/0 = SubResource("StandardMaterial3D_oick7")
 

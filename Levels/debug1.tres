@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Level" load_steps=5 format=3 uid="uid://cr0iq0j6tsyxp"]
+
+[ext_resource type="Script" path="res://Scripts/levelResource.gd" id="2_tjr1o"]
+[ext_resource type="Script" path="res://Scripts/SpawnItemRes.gd" id="3_bknix"]
+
+[sub_resource type="Resource" id="Resource_2t5sd"]
+script = ExtResource("3_bknix")
+id = "aipo"
+position = Vector2i(0, -3)
+orientation = 0
+immediate_next = false
+
+[sub_resource type="Resource" id="Resource_lmc77"]
+script = ExtResource("3_bknix")
+id = "aipo"
+position = Vector2i(-2, -3)
+orientation = 3
+immediate_next = true
+
+[resource]
+script = ExtResource("2_tjr1o")
+id = 1
+title = "Doggy"
+enemy = "dog"
+spawns = Array[ExtResource("3_bknix")]([null, SubResource("Resource_2t5sd"), null, null, SubResource("Resource_lmc77")])
