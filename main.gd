@@ -60,6 +60,7 @@ var live_items = 0
 var finished_spawning: bool = false
 
 signal level_ended(score: int)
+signal game_cleared(score: int)
 
 signal defeat(score: int)
 
@@ -147,4 +148,6 @@ func _on_level_ended(score):
 		time = 0
 		live_items = 0
 		finished_spawning = false
-	pass # Replace with function body.
+	else:
+		game_cleared.emit(score)
+		print("Last level cleared!!")
