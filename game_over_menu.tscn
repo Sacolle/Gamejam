@@ -21,7 +21,6 @@ script = ExtResource("1_gcg20")
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.466667)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

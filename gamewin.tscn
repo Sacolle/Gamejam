@@ -35,13 +35,13 @@ motion_mirroring = Vector2(512, 512)
 [node name="Bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_rn3rj")
-position = Vector2(257, 258)
+position = Vector2(256, 256)
 texture = ExtResource("2_nc04s")
 
 [node name="Bg3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_rn3rj")
-position = Vector2(1281, 258)
+position = Vector2(1280, 256)
 texture = ExtResource("2_nc04s")
 
 [node name="Funcdomes2" type="Sprite2D" parent="."]
