@@ -68,7 +68,7 @@ func set_item_center(cell: Vector2i) -> bool:
 		2: offset = Vector2(cell.x - old_pos.x, cell.y - old_pos.y) #reversed 0
 		3: offset = Vector2(old_pos.y - cell.y, old_pos.x - cell.x) #reversed 1
 
-	var shape_dim = Vector2(hit_box.shape.size.x, hit_box.shape.size.z)
+	#var shape_dim = Vector2(hit_box.shape.size.x, hit_box.shape.size.z)
 	#print("shape_dim: ", shape_dim)
 	#print("offset: ", offset)
 	
@@ -102,7 +102,7 @@ func _process(delta):
 func _on_input_event(_camera, event, pos, _normal, _shape_idx):
 	if event is InputEventMouseButton and event.is_pressed():
 		var selected_cell = Grid.world_to_grid(pos)
-		var local_cell = Grid.world_to_grid(pos - position)
+		#var local_cell = Grid.world_to_grid(pos - position)
 		#print("Selected Pos: ", pos)
 		#print("selected cell: ", selected_cell)
 		#print("Local", local_cell)

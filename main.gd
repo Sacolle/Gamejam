@@ -139,7 +139,7 @@ func _on_kill_box_area_entered(area):
 	area.queue_free()
 	get_tree().change_scene_to_file("res://game_over_menu.tscn")
 
-func _on_level_ended(score):
+func _on_level_ended(_score):
 	if (current_level.next_level):
 		# The game continues
 		print("Going to next level!")
