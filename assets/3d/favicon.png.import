@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5bsoxmvo1k36"
-path="res://.godot/imported/scanner_0.png-3fa742bdbb5390b33130a3e124fa7384.ctex"
+uid="uid://8ee7qmn4vxhy"
+path="res://.godot/imported/favicon.png-09d0779ff7a72bebf1085b006c37129f.ctex"
 metadata={
 "vram_texture": false
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://assets/3d/scanner_0.png"
-dest_files=["res://.godot/imported/scanner_0.png-3fa742bdbb5390b33130a3e124fa7384.ctex"]
+source_file="res://assets/3d/favicon.png"
+dest_files=["res://.godot/imported/favicon.png-09d0779ff7a72bebf1085b006c37129f.ctex"]
 
 [params]
 
@@ -22,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
