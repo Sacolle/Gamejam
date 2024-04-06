@@ -102,7 +102,7 @@ func _process(delta):
 
 func _on_input_event(_camera, event, pos, _normal, _shape_idx):
 	if event is InputEventMouseButton and event.is_pressed():
-		var selected_cell = Grid.world_to_grid(pos)
+		var clicked_cell = Grid.world_to_grid(pos)
 		#var local_cell = Grid.world_to_grid(pos - position)
 		#print("Selected Pos: ", pos)
 		#print("selected cell: ", selected_cell)
@@ -110,12 +110,12 @@ func _on_input_event(_camera, event, pos, _normal, _shape_idx):
 		"""
 		if not (local_cell.x == 0 and local_cell.y == 0):
 			print("posição", position)
-			print("celula selecionada", selected_cell)
+			print("celula selecionada", clicked_cell)
 			print("Local", local_cell)
 			print("orientação:", current_orientation())
 			print("rotação: ", (rotation.y / PI) * 180)
 		"""	
-		var _changed_cell = set_item_center(selected_cell)
+		var _changed_cell = set_item_center(clicked_cell)
 
 		var dir = 1 if event.button_index == MOUSE_BUTTON_LEFT else -1 
 		#gira o objeto

@@ -133,14 +133,18 @@ func _on_step_timer_timeout():
 	step = true
 
 
-func _on_kill_box_area_entered(area):
+func _on_kill_box_area_entered(_area):
 	#TODO: the game over
 	print("game over")
 	# area.queue_free()
+	call_deferred("game_defeat")
+	
+	
+func game_defeat():
 	for enemy in get_tree().get_nodes_in_group("items"):
 		enemy.queue_free()
 	get_tree().change_scene_to_file("res://game_over_menu.tscn")
-
+	
 func _on_level_ended(_score):
 	if (current_level.next_level):
 		# The game continues
