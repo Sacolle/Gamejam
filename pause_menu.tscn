@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://c0bf84ss52sfk"]
 
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_yixaj"]
-[ext_resource type="Texture2D" uid="uid://lriuoepufebt" path="res://assets/bg.png" id="2_7loog"]
-[ext_resource type="Texture2D" uid="uid://dp557lti83w5p" path="res://assets/pc/bonitrevas.png" id="3_habyb"]
+[ext_resource type="Texture2D" uid="uid://ciok8ghr2bnqm" path="res://assets/bg.png" id="2_7loog"]
+[ext_resource type="Texture2D" uid="uid://d3hesjd27tdei" path="res://assets/pc/bonitrevas.png" id="3_habyb"]
 [ext_resource type="Theme" uid="uid://1356byqvsec1" path="res://ui_theme_final.tres" id="5_4dxf5"]
 [ext_resource type="Theme" uid="uid://e3wa1604kqud" path="res://ui_theme.tres" id="5_uu8s0"]
-[ext_resource type="Texture2D" uid="uid://pogijb6pfm5x" path="res://assets/hud/botao.png" id="6_1kvpv"]
-[ext_resource type="Texture2D" uid="uid://ch534jm7m40tb" path="res://assets/hud/botaopress.png" id="7_38xwn"]
+[ext_resource type="Texture2D" uid="uid://ch7dkxkpof55w" path="res://assets/hud/botao.png" id="6_1kvpv"]
+[ext_resource type="Texture2D" uid="uid://muwt7uiadhup" path="res://assets/hud/botaopress.png" id="7_38xwn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8ioq"]
 

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://1356byqvsec1"]
 
-[ext_resource type="FontFile" uid="uid://cg4glm66hp7g3" path="res://assets/fonts/Markup W00 Regular/Markup W00 Regular.ttf" id="1_7txjr"]
+[ext_resource type="FontFile" uid="uid://du00p0fjkbtxy" path="res://assets/fonts/Markup W00 Regular/Markup W00 Regular.ttf" id="1_7txjr"]
 
 [resource]
 Label/colors/font_color = Color(0.482353, 0.141176, 0.121569, 1)
