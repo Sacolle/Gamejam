@@ -1,15 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://cyb88nidcvb51"]
+[gd_scene load_steps=14 format=3 uid="uid://cyb88nidcvb51"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_gkga2"]
 [ext_resource type="Shader" path="res://gamewin.gdshader" id="2_gtjrn"]
 [ext_resource type="Theme" uid="uid://e3wa1604kqud" path="res://ui_theme.tres" id="2_huf66"]
-[ext_resource type="Texture2D" uid="uid://dkqalnx4v7nm7" path="res://assets/sprites/mainmenu.png" id="3_2tigh"]
+[ext_resource type="Texture2D" uid="uid://rlcc2wgnq3h6" path="res://assets/sprites/mainmenu.png" id="3_2tigh"]
 [ext_resource type="Texture2D" uid="uid://vqa8ttqx3nb1" path="res://assets/tiles/bg.png" id="3_iqu41"]
-[ext_resource type="Texture2D" uid="uid://btnojv5b1bmqg" path="res://assets/hud/logo.png" id="5_cfpyk"]
-[ext_resource type="Texture2D" uid="uid://ca5xwe1g1mhxm" path="res://assets/hud/jogar.png" id="7_mwki3"]
-[ext_resource type="Texture2D" uid="uid://cvx2b3s2qy446" path="res://assets/hud/jogarpress.png" id="8_qpuv2"]
-[ext_resource type="Texture2D" uid="uid://bkewuhq314ufw" path="res://assets/hud/sair.png" id="9_gyg7f"]
-[ext_resource type="Texture2D" uid="uid://km3gw0nadqsd" path="res://assets/hud/sairpress.png" id="10_4nuh2"]
+[ext_resource type="Texture2D" uid="uid://cpjag41nlpy6y" path="res://assets/hud/logo.png" id="5_cfpyk"]
+[ext_resource type="Texture2D" uid="uid://cf84veoxpo53i" path="res://assets/hud/jogar.png" id="7_mwki3"]
+[ext_resource type="Texture2D" uid="uid://dpwsbl8fs0gmi" path="res://assets/hud/jogarpress.png" id="8_qpuv2"]
+[ext_resource type="Texture2D" uid="uid://c08m5ymjnhdor" path="res://assets/hud/sair.png" id="9_gyg7f"]
+[ext_resource type="Texture2D" uid="uid://dtejwbiqnsm8n" path="res://assets/hud/sairpress.png" id="10_4nuh2"]
+[ext_resource type="AudioStream" uid="uid://be8w8jxb0dj4s" path="res://assets/sounds/background.mp3" id="11_u2pen"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w6f6u"]
 shader = ExtResource("2_gtjrn")
@@ -17,7 +18,7 @@ shader_parameter/speed = 0.1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8ioq"]
 
-[node name="MenuControl" type="Control"]
+[node name="MenuControl2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -115,6 +116,11 @@ texture_normal = ExtResource("9_gyg7f")
 texture_pressed = ExtResource("10_4nuh2")
 texture_hover = ExtResource("10_4nuh2")
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_u2pen")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/JogarBtn" to="." method="_on_jogar_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/SairBtn" to="." method="_on_sair_btn_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6uhuswd23rx0"]
+[gd_scene load_steps=14 format=3 uid="uid://b6uhuswd23rx0"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_3wxir"]
 [ext_resource type="Texture2D" uid="uid://vqa8ttqx3nb1" path="res://assets/tiles/bg.png" id="2_nc04s"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dpwsbl8fs0gmi" path="res://assets/hud/jogarpress.png" id="8_vq4f2"]
 [ext_resource type="Texture2D" uid="uid://c08m5ymjnhdor" path="res://assets/hud/sair.png" id="9_e2dti"]
 [ext_resource type="Texture2D" uid="uid://dtejwbiqnsm8n" path="res://assets/hud/sairpress.png" id="10_bhajr"]
+[ext_resource type="AudioStream" uid="uid://c2ufrpi0qnkfs" path="res://assets/sounds/win_background.mp3" id="11_k821h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rn3rj"]
 shader = ExtResource("3_ic5fr")
@@ -113,6 +114,11 @@ texture_normal = ExtResource("9_e2dti")
 texture_pressed = ExtResource("10_bhajr")
 texture_hover = ExtResource("10_bhajr")
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_k821h")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/JogarBtn" to="." method="_on_jogar_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/SairBtn" to="." method="_on_sair_btn_pressed"]

@@ -1,22 +1,23 @@
-[gd_scene load_steps=33 format=3 uid="uid://c510cmtigpytf"]
+[gd_scene load_steps=34 format=3 uid="uid://c510cmtigpytf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_xlcdy"]
 [ext_resource type="PackedScene" uid="uid://b6pnse6exakcf" path="res://scanner.tscn" id="2_ttui5"]
-[ext_resource type="Resource" uid="uid://ct5qt3rpa80h8" path="res://Levels/level0.tres" id="2_yrwns"]
-[ext_resource type="PackedScene" uid="uid://dpgfqvlc18r60" path="res://assets/3d/scanner.gltf" id="4_0nto1"]
-[ext_resource type="Texture2D" uid="uid://dclaef573dmfn" path="res://assets/tiles/esteira_32_0.png" id="4_om8ni"]
-[ext_resource type="Texture2D" uid="uid://bkyyxywlipqaf" path="res://assets/tiles/esteira_32_1.png" id="5_4aoed"]
-[ext_resource type="Texture2D" uid="uid://bbpg4rgq1fwn3" path="res://assets/sprites/zaffinofinal_1.png" id="7_s6ako"]
-[ext_resource type="Texture2D" uid="uid://di6aesa6105k8" path="res://assets/tiles/chao_32_1.png" id="8_l42cy"]
-[ext_resource type="AudioStream" uid="uid://bw8kjwjtfignq" path="res://assets/sounds/beep.mp3" id="9_0snix"]
-[ext_resource type="AudioStream" uid="uid://djnsrug327dw4" path="res://assets/sounds/esteirasfx.mp3" id="9_cephl"]
-[ext_resource type="Texture2D" uid="uid://6ygjx1pajf30" path="res://assets/tiles/chao_32_0.png" id="9_ikj5f"]
-[ext_resource type="PackedScene" uid="uid://br02r0ascyk5b" path="res://shelf_generator.tscn" id="10_jgv0c"]
-[ext_resource type="PackedScene" uid="uid://mbe17120wkft" path="res://assets/3d/cart.gltf" id="11_oxva2"]
+[ext_resource type="Resource" uid="uid://b4fukmdvn5xtw" path="res://Levels/level0.tres" id="2_yrwns"]
+[ext_resource type="PackedScene" uid="uid://dchx48jj6kdx2" path="res://assets/3d/scanner.gltf" id="4_0nto1"]
+[ext_resource type="Texture2D" uid="uid://clkgan3xxyxge" path="res://assets/tiles/esteira_32_0.png" id="4_om8ni"]
+[ext_resource type="Texture2D" uid="uid://46rfgujn7saw" path="res://assets/tiles/esteira_32_1.png" id="5_4aoed"]
+[ext_resource type="Texture2D" uid="uid://bb2hw00uhsfao" path="res://assets/sprites/zaffinofinal_1.png" id="7_s6ako"]
+[ext_resource type="Texture2D" uid="uid://cs1r713gudcxu" path="res://assets/tiles/chao_32_1.png" id="8_l42cy"]
+[ext_resource type="AudioStream" uid="uid://brity4n6vtoqu" path="res://assets/sounds/beep.mp3" id="9_0snix"]
+[ext_resource type="AudioStream" uid="uid://blmtl81v3yop3" path="res://assets/sounds/esteirasfx.mp3" id="9_cephl"]
+[ext_resource type="Texture2D" uid="uid://b45ipeoxd7lwr" path="res://assets/tiles/chao_32_0.png" id="9_ikj5f"]
+[ext_resource type="PackedScene" path="res://shelf_generator.tscn" id="10_jgv0c"]
+[ext_resource type="PackedScene" uid="uid://brf10feobvyyj" path="res://assets/3d/cart.gltf" id="11_oxva2"]
 [ext_resource type="PackedScene" uid="uid://c0bf84ss52sfk" path="res://pause_menu.tscn" id="12_8s1wk"]
-[ext_resource type="PackedScene" uid="uid://cp3dr81ks4y02" path="res://assets/3d/scenario/Houseplant.glb" id="13_s8i17"]
-[ext_resource type="PackedScene" uid="uid://cg65e8x3pqiuv" path="res://assets/3d/scenario/Cash register.glb" id="14_obioa"]
-[ext_resource type="PackedScene" uid="uid://bb7ciknmie4rl" path="res://assets/3d/scenario/Can Fridge.glb" id="15_88sqm"]
+[ext_resource type="PackedScene" uid="uid://xhlh6bkv8iqe" path="res://assets/3d/scenario/Houseplant.glb" id="13_s8i17"]
+[ext_resource type="PackedScene" uid="uid://crh48jaewu8mw" path="res://assets/3d/scenario/Cash register.glb" id="14_obioa"]
+[ext_resource type="PackedScene" uid="uid://bjc7lphbkw33g" path="res://assets/3d/scenario/Can Fridge.glb" id="15_88sqm"]
+[ext_resource type="AudioStream" uid="uid://be8w8jxb0dj4s" path="res://assets/sounds/background.mp3" id="18_63p8m"]
 
 [sub_resource type="Environment" id="Environment_ftk5f"]
 glow_enabled = true
@@ -244,6 +245,11 @@ mesh = SubResource("BoxMesh_oljc7")
 skeleton = NodePath("../Can Fridge2")
 
 [node name="PauseMenuControl" parent="." instance=ExtResource("12_8s1wk")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_63p8m")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="level_ended" from="." to="." method="_on_level_ended"]
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
