@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://xgg4mnfsn70o"]
 
-[ext_resource type="AudioStream" uid="uid://dwcdx04ktctqn" path="res://assets/sounds/spin1.mp3" id="1_bqtuj"]
-[ext_resource type="AudioStream" uid="uid://4u4h216wif7c" path="res://assets/sounds/spin2.mp3" id="2_keuxy"]
-[ext_resource type="AudioStream" uid="uid://cl33uu367b8ka" path="res://assets/sounds/spin3.mp3" id="3_w3nwp"]
-[ext_resource type="AudioStream" uid="uid://dcnor105w0e60" path="res://assets/sounds/spin4.mp3" id="4_mm8bp"]
-[ext_resource type="AudioStream" uid="uid://dseehgucshe0m" path="res://assets/sounds/spin5.mp3" id="5_h65cf"]
+[ext_resource type="AudioStream" uid="uid://bvup3snf4uew3" path="res://assets/sounds/spin1.mp3" id="1_bqtuj"]
+[ext_resource type="AudioStream" uid="uid://chbxg4dbxr2qn" path="res://assets/sounds/spin2.mp3" id="2_keuxy"]
+[ext_resource type="AudioStream" uid="uid://2isjshyuaggi" path="res://assets/sounds/spin3.mp3" id="3_w3nwp"]
+[ext_resource type="AudioStream" uid="uid://dsra1xfuunm62" path="res://assets/sounds/spin4.mp3" id="4_mm8bp"]
+[ext_resource type="AudioStream" uid="uid://dmn1w5j5oy4sc" path="res://assets/sounds/spin5.mp3" id="5_h65cf"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mvb5p"]
 streams_count = 5
